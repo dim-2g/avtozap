@@ -1,0 +1,200 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$crumb-separator-name: 'crumb-separator';
+$crumb-separator-x: 73px;
+$crumb-separator-y: 43px;
+$crumb-separator-offset-x: -73px;
+$crumb-separator-offset-y: -43px;
+$crumb-separator-width: 8px;
+$crumb-separator-height: 11px;
+$crumb-separator-total-width: 108px;
+$crumb-separator-total-height: 85px;
+$crumb-separator-image: '/assets/template/css/sprites/sprite.png';
+$crumb-separator: (73px, 43px, -73px, -43px, 8px, 11px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'crumb-separator', );
+$icon-down-name: 'icon-down';
+$icon-down-x: 51px;
+$icon-down-y: 32px;
+$icon-down-offset-x: -51px;
+$icon-down-offset-y: -32px;
+$icon-down-width: 14px;
+$icon-down-height: 8px;
+$icon-down-total-width: 108px;
+$icon-down-total-height: 85px;
+$icon-down-image: '/assets/template/css/sprites/sprite.png';
+$icon-down: (51px, 32px, -51px, -32px, 14px, 8px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'icon-down', );
+$icon-gear-name: 'icon-gear';
+$icon-gear-x: 51px;
+$icon-gear-y: 0px;
+$icon-gear-offset-x: -51px;
+$icon-gear-offset-y: 0px;
+$icon-gear-width: 31px;
+$icon-gear-height: 32px;
+$icon-gear-total-width: 108px;
+$icon-gear-total-height: 85px;
+$icon-gear-image: '/assets/template/css/sprites/sprite.png';
+$icon-gear: (51px, 0px, -51px, 0px, 31px, 32px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'icon-gear', );
+$icon-phone-name: 'icon-phone';
+$icon-phone-x: 24px;
+$icon-phone-y: 61px;
+$icon-phone-offset-x: -24px;
+$icon-phone-offset-y: -61px;
+$icon-phone-width: 24px;
+$icon-phone-height: 24px;
+$icon-phone-total-width: 108px;
+$icon-phone-total-height: 85px;
+$icon-phone-image: '/assets/template/css/sprites/sprite.png';
+$icon-phone: (24px, 61px, -24px, -61px, 24px, 24px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'icon-phone', );
+$icon-user-name: 'icon-user';
+$icon-user-x: 55px;
+$icon-user-y: 43px;
+$icon-user-offset-x: -55px;
+$icon-user-offset-y: -43px;
+$icon-user-width: 18px;
+$icon-user-height: 18px;
+$icon-user-total-width: 108px;
+$icon-user-total-height: 85px;
+$icon-user-image: '/assets/template/css/sprites/sprite.png';
+$icon-user: (55px, 43px, -55px, -43px, 18px, 18px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'icon-user', );
+$mastercard-name: 'mastercard';
+$mastercard-x: 0px;
+$mastercard-y: 0px;
+$mastercard-offset-x: 0px;
+$mastercard-offset-y: 0px;
+$mastercard-width: 51px;
+$mastercard-height: 43px;
+$mastercard-total-width: 108px;
+$mastercard-total-height: 85px;
+$mastercard-image: '/assets/template/css/sprites/sprite.png';
+$mastercard: (0px, 0px, 0px, 0px, 51px, 43px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'mastercard', );
+$sberbank-name: 'sberbank';
+$sberbank-x: 82px;
+$sberbank-y: 0px;
+$sberbank-offset-x: -82px;
+$sberbank-offset-y: 0px;
+$sberbank-width: 26px;
+$sberbank-height: 27px;
+$sberbank-total-width: 108px;
+$sberbank-total-height: 85px;
+$sberbank-image: '/assets/template/css/sprites/sprite.png';
+$sberbank: (82px, 0px, -82px, 0px, 26px, 27px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'sberbank', );
+$social-instagram-name: 'social-instagram';
+$social-instagram-x: 0px;
+$social-instagram-y: 61px;
+$social-instagram-offset-x: 0px;
+$social-instagram-offset-y: -61px;
+$social-instagram-width: 24px;
+$social-instagram-height: 24px;
+$social-instagram-total-width: 108px;
+$social-instagram-total-height: 85px;
+$social-instagram-image: '/assets/template/css/sprites/sprite.png';
+$social-instagram: (0px, 61px, 0px, -61px, 24px, 24px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'social-instagram', );
+$social-vk-name: 'social-vk';
+$social-vk-x: 48px;
+$social-vk-y: 61px;
+$social-vk-offset-x: -48px;
+$social-vk-offset-y: -61px;
+$social-vk-width: 30px;
+$social-vk-height: 18px;
+$social-vk-total-width: 108px;
+$social-vk-total-height: 85px;
+$social-vk-image: '/assets/template/css/sprites/sprite.png';
+$social-vk: (48px, 61px, -48px, -61px, 30px, 18px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'social-vk', );
+$visa-name: 'visa';
+$visa-x: 0px;
+$visa-y: 43px;
+$visa-offset-x: 0px;
+$visa-offset-y: -43px;
+$visa-width: 55px;
+$visa-height: 18px;
+$visa-total-width: 108px;
+$visa-total-height: 85px;
+$visa-image: '/assets/template/css/sprites/sprite.png';
+$visa: (0px, 43px, 0px, -43px, 55px, 18px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'visa', );
+$yandex-wallet-name: 'yandex-wallet';
+$yandex-wallet-x: 82px;
+$yandex-wallet-y: 27px;
+$yandex-wallet-offset-x: -82px;
+$yandex-wallet-offset-y: -27px;
+$yandex-wallet-width: 23px;
+$yandex-wallet-height: 28px;
+$yandex-wallet-total-width: 108px;
+$yandex-wallet-total-height: 85px;
+$yandex-wallet-image: '/assets/template/css/sprites/sprite.png';
+$yandex-wallet: (82px, 27px, -82px, -27px, 23px, 28px, 108px, 85px, '/assets/template/css/sprites/sprite.png', 'yandex-wallet', );
+$spritesheet-width: 108px;
+$spritesheet-height: 85px;
+$spritesheet-image: '/assets/template/css/sprites/sprite.png';
+$spritesheet-sprites: ($crumb-separator, $icon-down, $icon-gear, $icon-phone, $icon-user, $mastercard, $sberbank, $social-instagram, $social-vk, $visa, $yandex-wallet, );
+$spritesheet: (108px, 85px, '/assets/template/css/sprites/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
