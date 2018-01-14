@@ -47,6 +47,12 @@ body{
   }
   &__content{
     align-items: stretch;
+    .content{
+      flex-shrink:1;
+      max-width:100%;
+      min-width: 0;
+      width: 100%;
+    }
   }
 }
 
@@ -532,7 +538,7 @@ aside{
   a{
     display: block;
     background-color: #313335;
-    padding: 8px 6px 8px 30px;
+    padding: 12px 6px 12px 30px;
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
@@ -563,4 +569,17 @@ aside{
 .test{
   font-size: 14px;
   color: red;
+}
+.btn-o{
+  border: 1px solid $red;
+  display: inline-block;
+  padding: 4px 10px 6px;
+  color: $red;
+  font-size: 13px;
+  text-decoration: none;
+  transition: $anim;
+  &:hover{
+    background-color: $red;
+    color: #fff;
+  }
 }
