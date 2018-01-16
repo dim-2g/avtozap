@@ -583,3 +583,41 @@ aside{
     color: #fff;
   }
 }
+
+.pagination{
+  margin: 0 !important;
+  text-align: center;
+  li{
+    display: inline-block;
+    color: #fff;
+    margin: 0 2px;
+    &:before{
+      display: none;
+    }
+    &:after{
+      display: none;
+    }
+    &.active{
+      a{
+        background-color: $red;
+      }
+    }
+    a{
+      color: #fff;
+      text-decoration: none;
+      padding: 2px 8px 4px;
+      display: inline-block;
+      background-color: #3f434e;
+      &:hover{
+        background-color: $red;
+      }
+    }
+    span{
+      color: #fff;
+      text-decoration: none;
+      padding: 2px 8px;
+      display: inline-block;
+      background-color: #3f434e;
+    }
+  }
+}
