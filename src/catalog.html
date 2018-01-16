@@ -97,14 +97,14 @@
                     <div class="sortpanel__left">
                         <div class="sortpanel__item">
                             <span class="sortpanel__label">Сортировать по цене: </span>
-                            <select name="" id="">
+                            <select name="" id="" class="selectric">
                                 <option value="">Дороже</option>
                                 <option value="">Дешевле</option>
                             </select>
                         </div>
-                        <div class="sortpanel__item">
+                        <div class="sortpanel__item sortpanel__item--showpages">
                             <span class="sortpanel__label">Показывать по: </span>
-                            <select name="" id="">
+                            <select name="" id="" class="selectric">
                                 <option value="">10</option>
                                 <option value="">25</option>
                                 <option value="">50</option>
@@ -113,13 +113,19 @@
                     </div>
                     <div class="sortpanel__right">
                         <div class="viewbox">
-                            <a href="#" class="viewbox__tail active"></a>
-                            <a href="#" class="viewbox__list"></a>
+                            <a href="#" class="viewbox__item active">
+                                <span class="viewbox__tail"></span>
+                            </a>
+                            <a href="#" class="viewbox__item">
+                                <span class="viewbox__list"></span>
+                            </a>
                         </div>
                         <div class="pagination">
                             <div class="pagination">
                                 <ul class="pagination">
-                                    <li class="disabled"><span>Первая</span></li><li class="disabled"><span>&laquo;</span></li><li class="active"><a href="about/news/">1</a></li><li><a href="about/news/?page=2">2</a></li><li class="control"><a href="about/news/?page=2">&raquo;</a></li><li class="control"><a href="about/news/?page=2">Последняя</a></li>
+                                    <li class="disabled"><span class="pagination__prev"></span></li>
+                                    <li class="active"><a href="#">1</a></li><li><a href="#">2</a></li>
+                                    <li class="control"><a href="#" class="pagination__next"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -823,6 +829,45 @@
 
                 </div>
 
+                <div class="sortpanel">
+                    <div class="sortpanel__left">
+                        <div class="sortpanel__item">
+                            <span class="sortpanel__label">Сортировать по цене: </span>
+                            <select name="" id="" class="selectric">
+                                <option value="">Дороже</option>
+                                <option value="">Дешевле</option>
+                            </select>
+                        </div>
+                        <div class="sortpanel__item sortpanel__item--showpages">
+                            <span class="sortpanel__label">Показывать по: </span>
+                            <select name="" id="" class="selectric">
+                                <option value="">10</option>
+                                <option value="">25</option>
+                                <option value="">50</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="sortpanel__right">
+                        <div class="viewbox">
+                            <a href="#" class="viewbox__item active">
+                                <span class="viewbox__tail"></span>
+                            </a>
+                            <a href="#" class="viewbox__item">
+                                <span class="viewbox__list"></span>
+                            </a>
+                        </div>
+                        <div class="pagination">
+                            <div class="pagination">
+                                <ul class="pagination">
+                                    <li class="disabled"><span class="pagination__prev"></span></li>
+                                    <li class="active"><a href="#">1</a></li><li><a href="#">2</a></li>
+                                    <li class="control"><a href="#" class="pagination__next"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -920,8 +965,8 @@
     <script src="assets/template/vendor/magnific-popup/magnific-popup.js"></script>
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <script src='/assets/template/vendor/photobox/jquery.photobox.js'></script>
-    <link rel="stylesheet" href="/assets/template/vendor/fancybox/jquery.fancybox.min.css" />
-    <script src="/assets/template/vendor/fancybox/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="/assets/template/vendor/selectric/selectric.css" />
+    <script src="/assets/template/vendor/selectric/jquery.selectric.min.js"></script>
     <!--script src="assets/template/vendor/wow.min.js"></script>
     <script>
         new WOW({

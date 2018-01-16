@@ -1,8 +1,8 @@
 $(function() {
 
-
-
-
+    $('select.selectric').selectric({
+        maxHeight: 210
+    });
 
 });
 

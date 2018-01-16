@@ -607,7 +607,7 @@ aside{
       text-decoration: none;
       padding: 2px 8px 4px;
       display: inline-block;
-      background-color: #3f434e;
+      transition: $anim;
       &:hover{
         background-color: $red;
       }
@@ -617,7 +617,20 @@ aside{
       text-decoration: none;
       padding: 2px 8px;
       display: inline-block;
-      background-color: #3f434e;
+    }
+  }
+  &__prev{
+    &:before{
+      display: inline-block;
+      content: "";
+      @include sprite($icon-left);
+    }
+  }
+  &__next{
+    &:before{
+      display: inline-block;
+      content: "";
+      @include sprite($icon-right);
     }
   }
 }
