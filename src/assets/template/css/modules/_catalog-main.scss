@@ -1,0 +1,94 @@
+body.hino-300{
+  .content{
+    background: transparent url('../img/bg__hino-300.jpg') top center no-repeat;
+    background-size: cover;
+  }
+}
+.new-product{
+  background: rgba(0,0,0,0.3);
+  padding: 28px 0;
+  &__header{
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+  }
+  &__list{
+    padding-left: 98px;
+    padding-right: 98px;
+  }
+  &__item{
+    width: 188px;
+    margin: 0 auto;
+    padding: 0 10xp;
+    a{
+      text-decoration: none;
+    }
+  }
+  &__card{
+    background-color: #fff;
+    text-align: center;
+    display: block;
+  }
+  &__image-box{
+    height: 138px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__name{
+    background-color: $red;
+    color: #fff;
+    height: 40px;display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 100%;
+  }
+  .slick-arrow{
+    border: 0 none;
+    color: transparent;
+    width: 51px;
+    height: 41px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    transition: $anim;
+    &:before{
+      content: "";
+      display: inline-block;
+      line-height: 38px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &.slick-next{
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:before{
+        content: "";
+        @include sprite($arrow-right);
+        display: inline-block;
+      }
+    }
+    &.slick-prev{
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:before{
+        content: "";
+        @include sprite($arrow-left);
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.catalog-main{
+  .crumbs{
+    margin: 25px;
+  }
+}
