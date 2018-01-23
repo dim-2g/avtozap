@@ -40,6 +40,16 @@ $(function() {
         ]
     });
 
+    $('[data-list]').click(function(){
+        $('[data-list]').removeClass('active');
+        $(this).addClass('active');
+
+        var data_list = $(this).attr('data-list');
+        $('.category-list').removeClass('active');
+        $('.category-list.'+data_list).addClass('active');
+        return false;
+    });
+
 
 });
 

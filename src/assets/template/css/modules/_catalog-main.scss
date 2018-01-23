@@ -63,6 +63,8 @@ body.hino-300{
       position: absolute;
       top: 0;
       left: 0;
+      opacity: 1;
+
     }
     &.slick-next{
       right: 30px;
@@ -72,6 +74,9 @@ body.hino-300{
         content: "";
         @include sprite($arrow-right);
         display: inline-block;
+      }
+      &:hover{
+        transform: translate(10px,-50%);
       }
     }
     &.slick-prev{
@@ -83,6 +88,9 @@ body.hino-300{
         @include sprite($arrow-left);
         display: inline-block;
       }
+      &:hover{
+        transform: translate(-10px,-50%);
+      }
     }
   }
 }
@@ -90,5 +98,136 @@ body.hino-300{
 .catalog-main{
   .crumbs{
     margin: 25px;
+  }
+}
+.catalog-category{
+  padding-left: 70px;
+  padding-right: 70px;
+  max-width: 1268px;
+  margin-left: auto;
+  margin-right: auto;
+  &__list{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item{
+    width: 187px;
+    height: 178px;
+    border: 1px solid #b3b6b8;
+    box-shadow: 3px 5px 5px 0 rgba(0,0,0,0.29);
+    background-color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    transition: $anim;
+    margin-bottom: 30px;
+    &.active{
+      border-color: $red;
+    }
+    &:hover{
+      border-color: $red;
+    }
+    &--engine{
+      background: #fff url('../img/category/engine.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--amort{
+      background: #fff url('../img/category/amort.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--shassis{
+      background: #fff url('../img/category/shassis.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--electro{
+      background: #fff url('../img/category/electro.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--body{
+      background: #fff url('../img/category/body.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--service{
+      background: #fff url('../img/category/service.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--oil{
+      background: #fff url('../img/category/service-oil.jpg') center no-repeat;
+      background-size: contain;
+    }
+    &--to{
+      background: #fff url('../img/category/service-to.jpg') center no-repeat;
+      background-size: contain;
+    }
+  }
+  &__name{
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+.catalog-service{
+  &__list{
+    display: flex;
+    justify-content: center;
+    > * {
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+  }
+}
+.catalog-menu{
+  background-color: $red;
+  padding: 30px 35px 5px 35px;
+  margin-bottom: 30px;
+  height: 196px;
+  ul{
+    list-style-type: none;
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: flex-start;
+    float: left;
+    &.active{
+      display: flex;
+    }
+    li{
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 30px;
+      width: 250px;
+      padding-right: 10px;
+      a{
+        text-decoration: none;
+        color: #fff;
+        transition: $anim;
+        //border-bottom: 1px solid transparent;
+        position: relative;
+        &:after{
+          content: "";
+          width: 0;
+          background-color: #fff;
+          height: 1px;
+          left: 0;
+          bottom: -2px;
+          display: inline-block;
+          transition: $cubic;
+          position: absolute;
+        }
+        &:hover{
+          //border-bottom: 1px solid #fff;
+          &:after{
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }

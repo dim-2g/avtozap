@@ -155,6 +155,7 @@ body{
   flex-shrink: 0;
 }
 .topmenu{
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.33);
   //margin-left: -15px;
   //margin-right: -15px;
   &__left{
@@ -248,6 +249,7 @@ body{
         transition: $anim;
         position: relative;
         text-align: center;
+        font-size: 15px;
         &:hover{
           background-color: #811526;
         }
@@ -703,4 +705,8 @@ aside{
 }
 .red{
   color: $red;
+}
+.header1{
+  font-size: 24px;
+  margin-bottom: 30px;
 }
