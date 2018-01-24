@@ -40,6 +40,7 @@ $(function() {
         ]
     });
 
+    //переключение категорий каталога
     $('[data-list]').click(function(){
         $('[data-list]').removeClass('active');
         $(this).addClass('active');
@@ -47,6 +48,17 @@ $(function() {
         var data_list = $(this).attr('data-list');
         $('.category-list').removeClass('active');
         $('.category-list.'+data_list).addClass('active');
+        return false;
+    });
+
+    //переключение вкладок с информацией
+    $('[data-tab]').click(function(){
+        $('[data-tab]').removeClass('active');
+        $(this).addClass('active');
+
+        var data_tab = $(this).attr('data-tab');
+        $('.catalog-posts__tab').removeClass('active');
+        $(data_tab).addClass('active');        
         return false;
     });
 
