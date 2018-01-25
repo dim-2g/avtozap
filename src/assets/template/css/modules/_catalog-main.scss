@@ -18,6 +18,10 @@ body.hino-300{
   &__list{
     padding-left: 98px;
     padding-right: 98px;
+    display: none;
+    &.slick-initialized{
+      display: block;
+    }
   }
   &__item{
     width: 188px;

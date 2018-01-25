@@ -10,7 +10,7 @@
     margin-bottom: 35px;
   }
   &__card{
-    width: 264px;
+    width: 263px;
     border: 1px solid #cfcfcf;
     box-shadow: 2px 4px 5px 0 rgba(0, 0, 0, 0.29);
     transition: $cubic;
@@ -82,6 +82,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.33);
+  position: relative;
+  z-index: 10;
   &__left{
     display: flex;
     align-items: center;
@@ -169,5 +172,113 @@
   &__list{
     @include sprite($view-list);
     display: block;
+  }
+}
+
+.view-product{
+  background: #d6d6d6;
+  padding: 28px 65px;
+  &__header{
+    color: #333333;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+  }
+  &__list{
+    padding-left: 98px;
+    padding-right: 98px;
+    display: none;
+    &.slick-initialized{
+      display: block;
+    }
+  }
+  &__item{
+    width: 188px;
+    margin: 0 auto;
+    padding: 0 10xp;
+    a{
+      text-decoration: none;
+    }
+  }
+  &__card{
+    background-color: #fff;
+    text-align: center;
+    display: block;
+  }
+  &__image-box{
+    height: 138px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__name{
+    background-color: $red;
+    color: #fff;
+    height: 40px;display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 100%;
+  }
+  .slick-arrow{
+    border: 0 none;
+    color: transparent;
+    width: 51px;
+    height: 41px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    transition: $anim;
+    &:before{
+      content: "";
+      display: inline-block;
+      line-height: 38px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 1;
+
+    }
+    &.slick-next{
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:before{
+        content: "";
+        @include sprite($arrow-right);
+        display: inline-block;
+      }
+      &:hover{
+        transform: translate(10px,-50%);
+      }
+    }
+    &.slick-prev{
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:before{
+        content: "";
+        @include sprite($arrow-left);
+        display: inline-block;
+      }
+      &:hover{
+        transform: translate(-10px,-50%);
+      }
+    }
+  }
+  &__all{
+    float: right;
+    .btn-o{
+      padding: 10px 35px;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #53575e;
+      border: 1px solid #b2b2b2;
+      &:hover{
+        background-color: #fff;
+      }
+    }
   }
 }
