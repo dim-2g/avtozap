@@ -94,7 +94,7 @@ $(function() {
         $(this).addClass('active');
 
         var data_tab = $(this).attr('data-tab');
-        $('.catalog-posts__tab').removeClass('active');
+        $('.tab').removeClass('active');
         $(data_tab).addClass('active');        
         return false;
     });
