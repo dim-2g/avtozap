@@ -31,9 +31,16 @@
 <div class="search">
     <form action="">
         <input type="text" class="search__input" placeholder=" Поиск по артикулу или номеру детали"/>
-        <button type="submit" class="search__submit"></button>
+        <!-- <button type="submit" class="search__submit"></button> -->
+        <button class="btn-cogs search__submit">
+            <span class="cogs-live">
+                <span class="cogs-live__box"></span>
+            </span>
+        </button>
     </form>
 </div>
+
+    
 
 
 
@@ -125,6 +132,7 @@
 
 
 
+
 </div>
 
 
@@ -167,10 +175,169 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="http://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
 
-<script>'use strict';
 
+<script>
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+
+        initCarousel('.carousel');
+
+    });
+    
+}(jQuery));
+
+
+function initCarousel(selector) {
+    $carousel = $(selector);
+    if ($carousel.length==0) {
+        return;
+    }
+    figure = $carousel.find('figure');
+    slides = figure.children();
+    gap = $carousel.data('gap');
+    n = slides.length;
+    theta = 2 * Math.PI / n;
+    currImage = 0;
+    nav_btn = $('.main-nav');
+
+    //alert($images.length);
+    //alert($carousel.find(":first-child").width());
+    setupCarousel(n, $carousel.find(":first-child").width());
+    setupNavigation();
+
+    function setupCarousel(n, s) {
+        var apothem = s / (2 * Math.tan(Math.PI / n));
+
+        figure.css({"transform-origin": "50% 50% " + -apothem + "px"});
+        slides.css({"padding": gap + "px"});
+        slides.each(function(index, value) {
+            $(this).css({
+                "transform-origin": "50% 50% " + -apothem + "px",
+                "transform": "rotateY(" + index*theta + "rad"
+            });
+        });
+        rotateCarousel(currImage);
+    }
+
+    function rotateCarousel(imageIndex) {
+        figure.css({"transform": "rotateY(" + imageIndex * -theta + "rad"});
+    }
+
+    function setupNavigation() {
+        nav_btn.on('click', goCarousel);
+        
+
+        function goCarousel(e) {
+            e.stopPropagation();
+
+            var t = e.target;
+            $carousel.removeClass('go-prev');
+            $carousel.removeClass('go-next');
+
+            direction = $(this).hasClass('next') ? "next" : "prev";
+
+            if (direction == "next") {
+                currImage++;
+                $carousel.addClass('go-next');
+                $('[slide-index]').each(function(){
+                    var ind = parseInt($(this).attr('slide-index'));
+                    var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+                });
+            } else {
+                currImage--;
+                $carousel.addClass('go-prev');
+                $('[slide-index]').each(function(){
+                    var ind = parseInt($(this).attr('slide-index'));
+                    var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
+                });
+            }
+
+            var change_step = 100;
+            var step_now = 0;
+            var timerChangeSlide = setInterval(function() {
+              
+            
+
+
+
+              switch (step_now){
+                case 0:
+                    //уменьшаем центральное изображение
+                    $carousel.addClass('zoom-center');
+                    $carousel.addClass('six-images');
+                    nav_btn.addClass('hide');
+                break;
+                case 100:
+                    $carousel.addClass('rotation');
+                    $carousel.addClass('fives-images');
+                    
+                break;
+                case 1400:
+                    rotateCarousel(currImage);
+                break;
+                case 1500:
+                    //$carousel.addClass('six-images');
+                break;
+                case 2400:
+                    if (direction == "next") {
+                        $('[slide-index]').each(function(){
+                            var ind = parseInt($(this).attr('slide-index'));
+                            var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+                            $(this).attr('slide-index', new_ind);
+                        });
+                    } else {
+                        $('[slide-index]').each(function(){
+                            var ind = parseInt($(this).attr('slide-index'));
+                            var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
+                            $(this).attr('slide-index', new_ind);
+                        });
+                    }
+                    $carousel.addClass('fives-images-hide');
+
+                break;
+                case 2800:
+                    
+
+
+
+
+                    $carousel.removeClass('fives-images');
+                    $carousel.removeClass('fives-images-hide');
+                    $carousel.removeClass('rotation');
+                    $carousel.removeClass('zoom-center');
+                    $carousel.removeClass('six-images');
+                    
+                break;
+                case 3400:
+                    nav_btn.removeClass('hide');
+                break;
+                default:
+                    //$('.carousel').removeClass('rotation');
+              }
+              step_now += change_step;
+              $('title').html(step_now);
+
+            }, change_step);
+
+            // через 5 сек остановить повторы
+            setTimeout(function() {
+              clearInterval(timerChangeSlide);
+              
+              $('title').html('таймер остановлен'); 
+            }, 5000);
+
+
+
+
+        }
+    }
+
+
+}
+/*
 window.addEventListener('load', function () {
     var carousels = document.querySelectorAll('.carousel');
 
@@ -180,7 +347,8 @@ window.addEventListener('load', function () {
     window.CP.exitedLoop(1);
 
 });
-
+*/
+/*
 function carousel(root) {
 
     var figure = root.querySelector('figure'),
@@ -194,7 +362,9 @@ function carousel(root) {
         theta = 2 * Math.PI / n,
         currImage = 0;
 
-    setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
+//alert( getComputedStyle(images[0]).width);
+
+    /*setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
     window.addEventListener('resize', function () {
         //setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
         setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
@@ -205,7 +375,9 @@ function carousel(root) {
     function setupCarousel(n, s) {
         var apothem = s / (2 * Math.tan(Math.PI / n));
 
-        figure.style.transformOrigin = '50% 50% ' + -apothem + 'px';
+        fugure.css({'transform-origin', '50% 50% ' + -apothem + 'px'});
+
+        //figure.style.transformOrigin = '50% 50% ' + -apothem + 'px';
 
         for (var i = 0; i < n; i++) {if (window.CP.shouldStopExecution(2)){break;}
             images[i].style.padding = gap + 'px';
@@ -324,35 +496,6 @@ function carousel(root) {
 
 
 
-/*
-            $('.carousel').addClass('rotation');
-            setTimeout(function(){
-
-            if (t.classList.contains('next')) {
-                currImage++;
-                $('[slide-index]').each(function(){
-                    var ind = parseInt($(this).attr('slide-index'));
-                    var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
-                    $(this).attr('slide-index', new_ind);
-
-                });
-            } else {
-                currImage--;
-                $('[slide-index]').each(function(){
-                    var ind = parseInt($(this).attr('slide-index'));
-                    var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
-                    $(this).attr('slide-index', new_ind);
-
-                });
-            }
-
-                rotateCarousel(currImage);
-                setTimeout(function() {
-                    $('.carousel').removeClass('rotation');
-                }, 1200);
-            }, 900);
-*/
-
 
         }
     }
@@ -362,6 +505,7 @@ function carousel(root) {
     }
 }
 //# sourceURL=pen.js
+*/
 </script>
 
 </body>

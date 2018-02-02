@@ -140,12 +140,12 @@ body{
     &:hover{
       opacity: 0.75;
     }
-    &:before{
+    /*&:before{
       content: "";
       @include sprite($icon-gear);
       display: inline-block;
       vertical-align: middle;
-    }
+    }*/
   }
 }
 
