@@ -1,10 +1,12 @@
 .balanslk{
   &__payment{
     margin-top: -14px;
+    min-height: 500px;
   }
   &__list{
     display: flex;
     color: #2c3032;
+    margin-bottom: 40px;
   }
   &__item{
     flex: 1;
@@ -88,4 +90,35 @@
     min-width: 240px;
   }
 
+}
+.balanslk-history{
+  max-width: 422px;
+  &__info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  &__caption {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  &__date{
+    color: #999ba0;
+    margin-right: 6px;
+  }
+  &__name{
+    margin-left: 8px;
+  }
+  &__line{
+    border-bottom: 1px dashed #bdbdbd;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    flex: 1;
+  }
+  &__value{
+    font-weight: bold;
+    font-size: 18px;
+  }
 }

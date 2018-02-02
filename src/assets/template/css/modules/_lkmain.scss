@@ -1,0 +1,36 @@
+.lcabinet{
+  margin-top: 34px;
+}
+.lcabinet-profile{
+  display: flex;
+  &__image{
+    height:158px;
+    width: 162px;
+    margin-right: 16px;
+    margin-top: 3px;
+  }
+  &__info{
+    margin-left: 18px;
+  }
+  &__name{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  &__setting{
+    margin-left: 11px;
+    color: $red;
+    position: absolute;
+    font-size: 15px;
+    text-decoration: none;
+    &:before{
+      position: relative;
+      content: "";
+      @include sprite($lk-setting);
+      top:0;
+      left: -7px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
