@@ -20,27 +20,57 @@
 <body class="main">
 
 <div class="logo-box">
-    <a href="/"><img itemprop="image url" src="/assets/template/img/logo.png" alt=""></a>
+    <a href="/"><img itemprop="image url" src="/assets/template/img/logo-main.png" alt=""></a>
 </div>
 
-<div class="search">
-    <form action="">
-        <input type="text" class="search__input" placeholder=" Поиск по артикулу или номеру детали"/>
-        <!-- <button type="submit" class="search__submit"></button> -->
-        <button class="btn-cogs search__submit">
+
+<div class="main-top">
+    <div class="search">
+        <form action="">
+            <input type="text" class="search__input" placeholder=" Поиск по артикулу или номеру детали"/>
+            <!-- <button type="submit" class="search__submit"></button> -->
+            <button class="btn-cogs search__submit">
             <span class="cogs-live">
                 <span class="cogs-live__box"></span>
             </span>
-        </button>
-    </form>
+            </button>
+        </form>
+    </div>
+
+    <div class="m-catalog-menu" toggle-class="active" >
+        <a class="m-catalog-menu__caption" href="#">
+            <i class="m-catalog-menu__burger"></i>
+            Каталог
+            <i class="m-catalog-menu__arrow"></i>
+        </a>
+        <div class="m-catalog-menu__list">
+            <div class="m-catalog-menu__body">
+                <p>111111111</p>
+                <p>222222222</p>
+                <p>333333333</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="m-cabinet-menu">
+        <a class="m-cabinet-menu__caption" href="#">
+            Личный кабинет
+            <i class="m-cabinet-menu__arrow"></i>
+        </a>
+
+    </div>
+    <div class="main-top__cart">
+        <img src="/assets/template/img/menu-truck.png" alt="">
+    </div>
+
 </div>
 
-    
+<script>document.title="Главная заставка"</script>
 
 
 
 <div class="main-navigation">
-    <h2>Восемь изображений с разрывом 20 пикселей</h2>
+
     <div class="carousel" data-gap="20">
 
         <figure style="transform-origin: 50% 50% -600.159px; transform: rotateY(0rad);">
@@ -131,6 +161,20 @@
 </div>
 
 
+
+<div class="main-footer">
+    <div class="main-footer__left">
+        <div class="main-footer__copyright">
+            Copyright 2018 · All rights reserved.
+        </div>
+    </div>
+    <div class="main-footer__right">
+        <a href="tel:+74955550000" class="main-footer__phone metal-text">+7 (495) 555 00 00</a>
+    </div>
+</div>
+
+
+
 <!--div slide-index="1">
     <img  src="https://source.unsplash.com/mCg0ZgD7BgU/800x533" alt="" style="">
 </div>
@@ -173,335 +217,181 @@
 
 
 <script>
-(function($) {
-    'use strict';
+    (function($) {
+        'use strict';
 
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-        initCarousel('.carousel');
+            initCarousel('.carousel');
 
-    });
-    
-}(jQuery));
-
-
-function initCarousel(selector) {
-    $carousel = $(selector);
-    if ($carousel.length==0) {
-        return;
-    }
-    figure = $carousel.find('figure');
-    slides = figure.children();
-    gap = $carousel.data('gap');
-    n = slides.length;
-    theta = 2 * Math.PI / n;
-    currImage = 0;
-    nav_btn = $('.main-nav');
-
-    //alert($images.length);
-    //alert($carousel.find(":first-child").width());
-    setupCarousel(n, $carousel.find(":first-child").width());
-    setupNavigation();
-
-    function setupCarousel(n, s) {
-        var apothem = s / (2 * Math.tan(Math.PI / n));
-
-        figure.css({"transform-origin": "50% 50% " + -apothem + "px"});
-        slides.css({"padding": gap + "px"});
-        slides.each(function(index, value) {
-            $(this).css({
-                "transform-origin": "50% 50% " + -apothem + "px",
-                "transform": "rotateY(" + index*theta + "rad"
-            });
         });
-        rotateCarousel(currImage);
-    }
 
-    function rotateCarousel(imageIndex) {
-        figure.css({"transform": "rotateY(" + imageIndex * -theta + "rad"});
-    }
-
-    function setupNavigation() {
-        nav_btn.on('click', goCarousel);
-        
-
-        function goCarousel(e) {
-            e.stopPropagation();
-
-            var t = e.target;
-            $carousel.removeClass('go-prev');
-            $carousel.removeClass('go-next');
-
-            direction = $(this).hasClass('next') ? "next" : "prev";
-
-            if (direction == "next") {
-                currImage++;
-                $carousel.addClass('go-next');
-                $('[slide-index]').each(function(){
-                    var ind = parseInt($(this).attr('slide-index'));
-                    var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
-                });
-            } else {
-                currImage--;
-                $carousel.addClass('go-prev');
-                $('[slide-index]').each(function(){
-                    var ind = parseInt($(this).attr('slide-index'));
-                    var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
-                });
-            }
-
-            var change_step = 100;
-            var step_now = 0;
-            var timerChangeSlide = setInterval(function() {
-              
-            
+    }(jQuery));
 
 
-
-              switch (step_now){
-                case 0:
-                    //уменьшаем центральное изображение
-                    $carousel.addClass('zoom-center');
-                    $carousel.addClass('six-images');
-                    nav_btn.addClass('hide');
-                break;
-                case 100:
-                    $carousel.addClass('rotation');
-                    $carousel.addClass('fives-images');
-                    
-                break;
-                case 1400:
-                    rotateCarousel(currImage);
-                break;
-                case 1500:
-                    //$carousel.addClass('six-images');
-                break;
-                case 2400:
-                    if (direction == "next") {
-                        $('[slide-index]').each(function(){
-                            var ind = parseInt($(this).attr('slide-index'));
-                            var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
-                            $(this).attr('slide-index', new_ind);
-                        });
-                    } else {
-                        $('[slide-index]').each(function(){
-                            var ind = parseInt($(this).attr('slide-index'));
-                            var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
-                            $(this).attr('slide-index', new_ind);
-                        });
-                    }
-                    $carousel.addClass('fives-images-hide');
-
-                break;
-                case 2800:
-                    
-
-
-
-
-                    $carousel.removeClass('fives-images');
-                    $carousel.removeClass('fives-images-hide');
-                    $carousel.removeClass('rotation');
-                    $carousel.removeClass('zoom-center');
-                    $carousel.removeClass('six-images');
-                    
-                break;
-                case 3400:
-                    nav_btn.removeClass('hide');
-                break;
-                default:
-                    //$('.carousel').removeClass('rotation');
-              }
-              step_now += change_step;
-              $('title').html(step_now);
-
-            }, change_step);
-
-            // через 5 сек остановить повторы
-            setTimeout(function() {
-              clearInterval(timerChangeSlide);
-              
-              $('title').html('таймер остановлен'); 
-            }, 5000);
-
-
-
-
+    function initCarousel(selector) {
+        $carousel = $(selector);
+        if ($carousel.length==0) {
+            return;
         }
-    }
-
-
-}
-/*
-window.addEventListener('load', function () {
-    var carousels = document.querySelectorAll('.carousel');
-
-    for (var i = 0; i < carousels.length; i++) {if (window.CP.shouldStopExecution(1)){break;}
-        carousel(carousels[i]);
-    }
-    window.CP.exitedLoop(1);
-
-});
-*/
-/*
-function carousel(root) {
-
-    var figure = root.querySelector('figure'),
-        nav_prev = document.querySelector('.main-nav.prev'),
-        nav_next = document.querySelector('.main-nav.next'),
-        images = figure.children,
-        n = images.length,
-        //n=8,
-        gap = root.dataset.gap || 0,
-        bfc = 'bfc' in root.dataset,
-        theta = 2 * Math.PI / n,
+        figure = $carousel.find('figure');
+        slides = figure.children();
+        gap = $carousel.data('gap');
+        n = slides.length;
+        theta = 2 * Math.PI / n;
         currImage = 0;
+        nav_btn = $('.main-nav');
 
-//alert( getComputedStyle(images[0]).width);
 
-    /*setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
-    window.addEventListener('resize', function () {
-        //setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
-        setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
-    });
+        setupCarousel(n, $carousel.find(":first-child").width());
+        setupNavigation();
 
-    setupNavigation();
+        function setupCarousel(n, s) {
+            var apothem = s / (2 * Math.tan(Math.PI / n));
 
-    function setupCarousel(n, s) {
-        var apothem = s / (2 * Math.tan(Math.PI / n));
-
-        fugure.css({'transform-origin', '50% 50% ' + -apothem + 'px'});
-
-        //figure.style.transformOrigin = '50% 50% ' + -apothem + 'px';
-
-        for (var i = 0; i < n; i++) {if (window.CP.shouldStopExecution(2)){break;}
-            images[i].style.padding = gap + 'px';
-        }
-        window.CP.exitedLoop(2);
-        for (i = 1; i < n; i++) {if (window.CP.shouldStopExecution(3)){break;}
-            images[i].style.transformOrigin = '50% 50% ' + -apothem + 'px';
-            images[i].style.transform = 'rotateY(' + i * theta + 'rad)';
-        }
-        window.CP.exitedLoop(3);
-
-        if (bfc) for (i = 0; i < n; i++) {if (window.CP.shouldStopExecution(4)){break;}
-            images[i].style.backfaceVisibility = 'hidden';
-        }
-        window.CP.exitedLoop(4);
-        rotateCarousel(currImage);
-    }
-
-    function setupNavigation() {
-        nav_prev.addEventListener('click', onClick, true);
-        nav_next.addEventListener('click', onClick, true);
-
-        function onClick(e) {
-            e.stopPropagation();
-
-            var t = e.target;
-            if (t.tagName.toUpperCase() != 'BUTTON') return;
-
-            var $carousel = $('.carousel');
-            $carousel.removeClass('go-prev');
-            $carousel.removeClass('go-next');
-
-            if (t.classList.contains('next')) {
-                currImage++;
-                $carousel.addClass('go-next');
-                $('[slide-index]').each(function(){
-                    var ind = parseInt($(this).attr('slide-index'));
-                    var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+            figure.css({"transform-origin": "50% 50% " + -apothem + "px"});
+            slides.css({"padding": gap + "px"});
+            slides.each(function(index, value) {
+                $(this).css({
+                    "transform-origin": "50% 50% " + -apothem + "px",
+                    "transform": "rotateY(" + index*theta + "rad"
                 });
-            } else {
-                currImage--;
-                $carousel.addClass('go-prev');
-                $('[slide-index]').each(function(){
-                    var ind = parseInt($(this).attr('slide-index'));
-                    var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
-                });
-            }
+            });
+            rotateCarousel(currImage);
+        }
 
-            var change_step = 100;
-            var step_now = 0;
-            var timerChangeSlide = setInterval(function() {
-              
-            
+        function rotateCarousel(imageIndex) {
+            figure.css({"transform": "rotateY(" + imageIndex * -theta + "rad"});
+        }
+
+        function setupNavigation() {
+            nav_btn.on('click', goCarousel);
 
 
+            function goCarousel(e) {
+                e.stopPropagation();
 
-              switch (step_now){
-                case 0:
-                    //уменьшаем центральное изображение
-                    $carousel.addClass('zoom-center');
-                break;
-                case 100:
-                    $carousel.addClass('rotation');
-                    $carousel.addClass('fives-images');
-                    $carousel.addClass('six-images');
-                break;
-                case 1400:
-                    rotateCarousel(currImage);
-                break;
-                case 1500:
-                    $carousel.addClass('six-images');
-                break;
-                case 2400:
-                    if (t.classList.contains('next')) {
-                        $('[slide-index]').each(function(){
-                            var ind = parseInt($(this).attr('slide-index'));
-                            var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
-                            $(this).attr('slide-index', new_ind);
-                        });
-                    } else {
-                        $('[slide-index]').each(function(){
-                            var ind = parseInt($(this).attr('slide-index'));
-                            var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
-                            $(this).attr('slide-index', new_ind);
-                        });
+                var t = e.target;
+                $carousel.removeClass('go-prev');
+                $carousel.removeClass('go-next');
+
+                direction = $(this).hasClass('next') ? "next" : "prev";
+
+                if (direction == "next") {
+                    currImage++;
+                    $carousel.addClass('go-next');
+                    $('[slide-index]').each(function(){
+                        var ind = parseInt($(this).attr('slide-index'));
+                        var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+                    });
+                } else {
+                    currImage--;
+                    $carousel.addClass('go-prev');
+                    $('[slide-index]').each(function(){
+                        var ind = parseInt($(this).attr('slide-index'));
+                        var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
+                    });
+                }
+
+                var change_step = 100;
+                var step_now = 0;
+                var timerChangeSlide = setInterval(function() {
+
+
+
+
+
+                    switch (step_now){
+                        case 0:
+                            //уменьшаем центральное изображение
+                            $carousel.addClass('zoom-center');
+                            $carousel.addClass('six-images');
+                            nav_btn.addClass('hide');
+                            break;
+                        case 100:
+                            $carousel.addClass('rotation');
+                            $carousel.addClass('fives-images');
+
+                            break;
+                        case 1400:
+                            rotateCarousel(currImage);
+                            break;
+                        case 1500:
+                            //$carousel.addClass('six-images');
+                            break;
+                        case 2400:
+                            if (direction == "next") {
+                                $('[slide-index]').each(function(){
+                                    var ind = parseInt($(this).attr('slide-index'));
+                                    var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+                                    $(this).attr('slide-index', new_ind);
+                                });
+                            } else {
+                                $('[slide-index]').each(function(){
+                                    var ind = parseInt($(this).attr('slide-index'));
+                                    var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
+                                    $(this).attr('slide-index', new_ind);
+                                });
+                            }
+                            $carousel.addClass('fives-images-hide');
+
+                            break;
+                        case 2800:
+
+                            $carousel.removeClass('fives-images');
+                            $carousel.removeClass('fives-images-hide');
+                            $carousel.removeClass('rotation');
+                            $carousel.removeClass('zoom-center');
+                            $carousel.removeClass('six-images');
+
+                            break;
+                        case 3400:
+                            nav_btn.removeClass('hide');
+                            break;
+                        default:
+                        //$('.carousel').removeClass('rotation');
                     }
-                    $carousel.addClass('fives-images-hide');
+                    step_now += change_step;
+                    $('title').html(step_now);
 
-                break;
-                case 2800:
-                    
+                }, change_step);
 
+                // через 5 сек остановить повторы
+                setTimeout(function() {
+                    clearInterval(timerChangeSlide);
 
-
-
-                    $carousel.removeClass('fives-images');
-                    $carousel.removeClass('fives-images-hide');
-                    $carousel.removeClass('rotation');
-                    $carousel.removeClass('zoom-center');
-                    $carousel.removeClass('six-images');
-                break;
-                default:
-                    //$('.carousel').removeClass('rotation');
-              }
-              step_now += change_step;
-              $('title').html(step_now);
-
-            }, change_step);
-
-            // через 5 сек остановить повторы
-            setTimeout(function() {
-              clearInterval(timerChangeSlide);
-              
-              $('title').html('таймер остановлен'); 
-            }, 3000);
+                    $('title').html('таймер остановлен');
+                }, 5000);
 
 
 
 
+            }
         }
+
+
     }
 
-    function rotateCarousel(imageIndex) {
-        figure.style.transform = 'rotateY(' + imageIndex * -theta + 'rad)';
-    }
-}
-//# sourceURL=pen.js
-*/
 </script>
+
+
+
+<script src="assets/template/vendor/jquery-3.2.1.min.js"></script>
+<script src="assets/template/vendor/slick/slick.js"></script>
+<script src="assets/template/vendor/magnific-popup/magnific-popup.js"></script>
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" href="/assets/template/vendor/selectric/selectric.css" />
+<script src="/assets/template/vendor/selectric/jquery.selectric.min.js"></script>
+<!--script src="assets/template/vendor/wow.min.js"></script>
+<script>
+    new WOW({
+        live: true
+    }).init();
+</script-->
+<script src="assets/template/js/scripts.js"></script>
+
+
+
 
 </body>
 </html>

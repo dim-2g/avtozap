@@ -13,23 +13,27 @@
     margin-bottom: 43px;
   }
   &__item{
-    padding: 0 38px;
+    padding: 0 35px;
     margin-bottom: 35px;
   }
   &__card{
+    display: inline-block;
     width: 190px;
     border: 1px solid #cfcfcf;
     box-shadow: 2px 4px 5px 0 rgba(0, 0, 0, 0.29);
     transition: all 0.5s cubic-bezier(0.3, 0, 0.2, 1);
     height: 178px;
     margin-bottom: 4px;
+    text-decoration: none;
   }
   &__image{
     margin-top: 7px;
     text-align: center;
-    // margin-bottom: -16px;
-    width: 184px;
+    line-height: 130px;
     height: 124px;
+    img{
+      vertical-align: middle;
+    }
   }
   &__name{
     color: #46484c;

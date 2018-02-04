@@ -99,6 +99,49 @@ $(function() {
         return false;
     });
 
+    $('[toggle-class]').click(function(){
+
+        $(this).toggleClass($(this).attr('toggle-class'));
+        return false;
+    })
+/*
+    $('.main-models__item').click(function(){
+       $('.main-models__item').removeClass('active');
+       $(this).addClass('active');
+       return false;
+    });*/
+
+
+    setModelCircle = function() {
+        //устанавливаем кружок-подложку
+        model_active = $('.main-models__item.active');
+        model_circle = $('.main-models__circle');
+        if (model_active.length==1) {
+            position = model_active.position();
+            item_width = model_active.width();
+            model_circle.addClass('active');
+            model_circle.css({"left":position.left+item_width/2, "top": position.top-10});
+        }
+    }
+    setModelCircle();
+
+    model_item = $('.main-models__item');
+    model_item.click(function() {
+
+       if ($(this).hasClass('active')) {
+           return;
+       }
+       model_item.removeClass('active');
+       $(this).addClass('active');
+       setModelCircle();
+    });
+
+
+    initAnimated = function() {
+        $('.logo-box').addClass('animated');
+    }
+    initAnimated();
+
 
 });
 

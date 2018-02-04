@@ -1,8 +1,11 @@
 .lcabinet{
   margin-top: 34px;
+  min-height: 1200px;
 }
 .lcabinet-profile{
   display: flex;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #cfcfcf;
   &__image{
     height:158px;
     width: 162px;
@@ -32,5 +35,91 @@
       display: inline-block;
       vertical-align: middle;
     }
+  }
+}
+.lcabinet-box{
+    margin-left: 71px;
+    margin-right: -38px;
+    margin-top: 33px;
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item{
+    padding: 0 35px;
+    margin-bottom: 35px;
+  }
+  &__card{
+    display: inline-block;
+    width: 190px;
+    border: 1px solid #cfcfcf;
+    box-shadow: 2px 4px 5px 0 rgba(0, 0, 0, 0.29);
+    transition: all 0.5s cubic-bezier(0.3, 0, 0.2, 1);
+    height: 180px;
+    margin-bottom: 23px;
+    text-decoration: none;
+  }
+  &__image{
+    height: 125px;
+    line-height: 130px;
+    text-align: center;
+    margin-bottom: 8px;
+    img{
+      vertical-align: middle;
+    }
+  }
+  &__name{
+    color: #46484c;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 18px;
+  }
+  &__text{
+    max-width: 198px;
+    color: #989a9e;
+    margin-left: 2px;
+    line-height: 140%;
+  }
+}
+.lcabinet-forum{
+  border-top: 1px solid #cfcfcf;
+  padding-top: 20px;
+  &__box{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+  &__caption{
+    color: #313335;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  &__setting{
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 28px;
+    margin-top: 7px;
+    margin-left: 19px;
+    &:before{
+      position: relative;
+      content: "";
+      @include sprite($lk-setting);
+      top:0;
+      left: -7px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  &__text{
+    margin-left: 4px;
+    color: #989a9e;
+    margin-bottom: 50px;
   }
 }

@@ -1,0 +1,234 @@
+
+<div class="main-footer">
+    <div class="main-footer__left">
+        <div class="main-footer__copyright">
+            Copyright 2018 · All rights reserved.
+        </div>
+    </div>
+    <div class="main-footer__right">
+        <a href="tel:+74955550000" class="main-footer__phone metal-text">+7 (495) 555 00 00</a>
+    </div>
+</div>
+
+
+
+<!--div slide-index="1">
+    <img  src="https://source.unsplash.com/mCg0ZgD7BgU/800x533" alt="" style="">
+</div>
+<div slide-index="2">
+    <img src="https://source.unsplash.com/EbuaKnSm8Zw/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(0.785398rad);">
+</div>
+<div slide-index="3">
+    <img src="https://source.unsplash.com/kG38b7CFzTY/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(1.5708rad);">
+</div>
+<div slide-index="4">
+    <img src="https://source.unsplash.com/nvzvOPQW0gc/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(2.35619rad);">
+</div>
+<div slide-index="5">
+    <img src="https://source.unsplash.com/VkwRmha1_tI/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(3.14159rad);">
+</div>
+<div slide-index="6">
+    <img src="https://source.unsplash.com/1FWICvPQdkY/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(3.92699rad);">
+</div>
+<div slide-index="7">
+    <img src="https://source.unsplash.com/bjhrzvzZeq4/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(4.71239rad);">
+</div>
+<div slide-index="8">
+    <img src="https://source.unsplash.com/7mUXaBBrhoA/800x533" alt="" style=" transform-origin: 50% 50% -600.159px; transform: rotateY(5.49779rad);">
+</div>
+<div slide-index="9">
+    <img src="https://source.unsplash.com/7mUXaBBrhoA/800x533" alt="" style=" ">
+</div>
+<div slide-index="10">
+    <img src="https://source.unsplash.com/7mUXaBBrhoA/800x533" alt="" style=" ">
+</div>
+<div slide-index="11">
+    <img src="https://source.unsplash.com/7mUXaBBrhoA/800x533" alt="" style=" ">
+</div>
+<div slide-index="12">
+    <img src="https://source.unsplash.com/7mUXaBBrhoA/800x533" alt="" style=" ">
+</div>-->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+<script>
+    (function($) {
+        'use strict';
+
+        $(document).ready(function() {
+
+            initCarousel('.carousel');
+
+        });
+
+    }(jQuery));
+
+
+    function initCarousel(selector) {
+        $carousel = $(selector);
+        if ($carousel.length==0) {
+            return;
+        }
+        figure = $carousel.find('figure');
+        slides = figure.children();
+        gap = $carousel.data('gap');
+        n = slides.length;
+        theta = 2 * Math.PI / n;
+        currImage = 0;
+        nav_btn = $('.main-nav');
+
+
+        setupCarousel(n, $carousel.find(":first-child").width());
+        setupNavigation();
+
+        function setupCarousel(n, s) {
+            var apothem = s / (2 * Math.tan(Math.PI / n));
+
+            figure.css({"transform-origin": "50% 50% " + -apothem + "px"});
+            slides.css({"padding": gap + "px"});
+            slides.each(function(index, value) {
+                $(this).css({
+                    "transform-origin": "50% 50% " + -apothem + "px",
+                    "transform": "rotateY(" + index*theta + "rad"
+                });
+            });
+            rotateCarousel(currImage);
+        }
+
+        function rotateCarousel(imageIndex) {
+            figure.css({"transform": "rotateY(" + imageIndex * -theta + "rad"});
+        }
+
+        function setupNavigation() {
+            nav_btn.on('click', goCarousel);
+
+
+            function goCarousel(e) {
+                e.stopPropagation();
+
+                var t = e.target;
+                $carousel.removeClass('go-prev');
+                $carousel.removeClass('go-next');
+
+                direction = $(this).hasClass('next') ? "next" : "prev";
+
+                if (direction == "next") {
+                    currImage++;
+                    $carousel.addClass('go-next');
+                    $('[slide-index]').each(function(){
+                        var ind = parseInt($(this).attr('slide-index'));
+                        var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+                    });
+                } else {
+                    currImage--;
+                    $carousel.addClass('go-prev');
+                    $('[slide-index]').each(function(){
+                        var ind = parseInt($(this).attr('slide-index'));
+                        var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
+                    });
+                }
+
+                var change_step = 100;
+                var step_now = 0;
+                var timerChangeSlide = setInterval(function() {
+
+
+
+
+
+                    switch (step_now){
+                        case 0:
+                            //уменьшаем центральное изображение
+                            $carousel.addClass('zoom-center');
+                            $carousel.addClass('six-images');
+                            nav_btn.addClass('hide');
+                            break;
+                        case 100:
+                            $carousel.addClass('rotation');
+                            $carousel.addClass('fives-images');
+
+                            break;
+                        case 1400:
+                            rotateCarousel(currImage);
+                            break;
+                        case 1500:
+                            //$carousel.addClass('six-images');
+                            break;
+                        case 2400:
+                            if (direction == "next") {
+                                $('[slide-index]').each(function(){
+                                    var ind = parseInt($(this).attr('slide-index'));
+                                    var new_ind = (ind - 1 == 0) ? 12 : ind - 1;
+                                    $(this).attr('slide-index', new_ind);
+                                });
+                            } else {
+                                $('[slide-index]').each(function(){
+                                    var ind = parseInt($(this).attr('slide-index'));
+                                    var new_ind = (ind + 1 > 12) ? 1 : ind + 1;
+                                    $(this).attr('slide-index', new_ind);
+                                });
+                            }
+                            $carousel.addClass('fives-images-hide');
+
+                            break;
+                        case 2800:
+
+                            $carousel.removeClass('fives-images');
+                            $carousel.removeClass('fives-images-hide');
+                            $carousel.removeClass('rotation');
+                            $carousel.removeClass('zoom-center');
+                            $carousel.removeClass('six-images');
+
+                            break;
+                        case 3400:
+                            nav_btn.removeClass('hide');
+                            break;
+                        default:
+                        //$('.carousel').removeClass('rotation');
+                    }
+                    step_now += change_step;
+                    $('title').html(step_now);
+
+                }, change_step);
+
+                // через 5 сек остановить повторы
+                setTimeout(function() {
+                    clearInterval(timerChangeSlide);
+
+                    $('title').html('таймер остановлен');
+                }, 5000);
+
+
+
+
+            }
+        }
+
+
+    }
+
+</script>
+
+
+
+<script src="assets/template/vendor/jquery-3.2.1.min.js"></script>
+<script src="assets/template/vendor/slick/slick.js"></script>
+<script src="assets/template/vendor/magnific-popup/magnific-popup.js"></script>
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" href="/assets/template/vendor/selectric/selectric.css" />
+<script src="/assets/template/vendor/selectric/jquery.selectric.min.js"></script>
+<!--script src="assets/template/vendor/wow.min.js"></script>
+<script>
+    new WOW({
+        live: true
+    }).init();
+</script-->
+<script src="assets/template/js/scripts.js"></script>
+
+
+
+
+</body>
+</html>
