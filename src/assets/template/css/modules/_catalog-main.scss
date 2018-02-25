@@ -358,3 +358,114 @@ body.hino-300{
     }
   }
 }
+
+
+.aside-catalog{
+  ul{
+    list-style-type: none;
+    margin: 0;
+    li{
+      margin: 25px 0;
+    }
+    ul{
+      ul{
+        margin-left: 18px;
+        li{
+          a{
+            font-size: 14px;
+            text-transform: uppercase;
+            padding-left: 20px;
+          }
+          ul{
+            li{
+              margin-top: 15px;
+              margin-bottom: 15px;
+            }
+            a{
+              background-color: transparent;
+              padding: 0;
+              font-size: 14px;
+              text-transform: uppercase;
+              &:before{
+                display: none;
+              }
+              &:hover{
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  a{
+    display: block;
+    background-color: #313335;
+    padding: 12px 6px 12px 30px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    &:hover{
+      &:before{
+        width: 100%;
+      }
+    }
+    &.active{
+      &:before{
+        width: 100%;
+      }
+    }
+    &:before{
+      transition: $cubic;
+      position: absolute;
+      content: "";
+      background-color: $red;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      z-index: 0;
+      display: inline-block;
+    }
+    span{
+      position: relative;
+      z-index: 1;
+    }
+  }
+  a{
+    &.aside-catalog{
+      &__main{
+        position: relative;
+        height: 53px;
+        line-height: 30px;
+        padding-left: 82px;
+        &:after{
+          position: absolute;
+          display: inline-block;
+          content: "";
+          width: 60px;
+          height: 53px;
+          left: 0;
+          top: 0;
+          background-size: contain;
+        }
+        &--hino{
+          &:after{
+            background: #fff url('../img/aside-hino.jpg') center no-repeat;
+          }
+        }
+        &--isuzu{
+          &:after{
+            background: #fff url('../img/aside-isuzu.jpg') center no-repeat;
+          }
+        }
+        &--mitsubishi{
+          &:after{
+            background: #fff url('../img/aside-mitsubishi.jpg') center no-repeat;
+          }
+        }
+      }
+    }
+  }
+}

@@ -57,18 +57,22 @@
                         <li></li>
                     </ul>
                 </div>
-                <div class="footer-box">
-                    <div class="footer-box__caption">Наши партнеры</div>
-                    <div class="footer-box__payments pay__list">
-                        <span class="pay__yandex-walet"></span>
-                        <span class="pay__sberbank"></span>
-                        <span class="pay__visa"></span>
-                        <span class="pay__mastercard"></span>
+                <div class="footer-box footer-box__double">
+                    <div class="footer-box__top">
+                        <div class="footer-box__caption">Наши партнеры</div>
+                        <div class="footer-box__payments pay__list">
+                            <span class="pay__yandex-walet"></span>
+                            <span class="pay__sberbank"></span>
+                            <span class="pay__visa"></span>
+                            <span class="pay__mastercard"></span>
+                        </div>
                     </div>
-                    <div class="footer-box__caption">Наши соц сети</div>
-                    <div class="footer-box__social social__list">
-                        <a href="#" class="social__vk"></a>
-                        <a href="#" class="social__instagram"></a>
+                    <div class="footer-box__bottom">
+                        <div class="footer-box__caption">Наши соц сети</div>
+                        <div class="footer-box__social social__list">
+                            <a href="#" class="social__vk"></a>
+                            <a href="#" class="social__instagram"></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,6 +103,22 @@
     </script-->
     <script src="assets/template/js/scripts.js"></script>
 
+
+
+    <script type="text/javascript" src="/assets/components/msearch2/js/web/default.js"></script>
+    <script type="text/javascript" src="/assets/components/minishop2/js/web/default.js?v=14f1a1db65"></script>
+
+    <script type="text/javascript">
+        if ($("#mse2_mfilter").length) {
+            if (window.location.hash != "" && mSearch2.Hash.oldbrowser()) {
+                var uri = window.location.hash.replace("#", "?");
+                window.location.href = document.location.pathname + uri;
+            }
+            else {
+                mSearch2.initialize("body");
+            }
+        }
+    </script>
 
 </body>
 </html>

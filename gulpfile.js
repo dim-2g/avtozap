@@ -66,7 +66,7 @@ var webserver = {
         server: {
             baseDir: './src'
         },
-        tunnel: true,
+        tunnel: false,
         host: 'localhost',
         port: 9001,
         logPrefix: 'app_dev'

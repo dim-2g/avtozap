@@ -1,21 +1,141 @@
 //= include/header.html
 
+
+<link rel="stylesheet" href="/assets/components/msearch2/css/web/default.css" type="text/css" />
+<link rel="stylesheet" href="/assets/components/minishop2/css/web/default.css?v=14f1a1db65" type="text/css" />
+<script type="text/javascript">miniShop2Config = {"cssUrl":"\/assets\/components\/minishop2\/css\/web\/","jsUrl":"\/assets\/components\/minishop2\/js\/web\/","actionUrl":"\/assets\/components\/minishop2\/action.php","ctx":"web","close_all_message":"\u0437\u0430\u043a\u0440\u044b\u0442\u044c \u0432\u0441\u0435","price_format":[2,"."," "],"price_format_no_zeros":true,"weight_format":[3,"."," "],"weight_format_no_zeros":true};</script>
+
+
+<script type="text/javascript">mse2Config = {"cssUrl":"\/assets\/components\/msearch2\/css\/web\/","jsUrl":"\/assets\/components\/msearch2\/js\/web\/","actionUrl":"\/assets\/components\/msearch2\/action.php","queryVar":"query","idVar":"id","filter_delimeter":"|","method_delimeter":":","values_delimeter":",","start_sort":"ms|price:desc","start_limit":"5","start_page":1,"start_tpl":"","sort":"","limit":"","page":"","pageVar":"page","tpl":"","parentsVar":"parents","key":"48b5924ee1a09c4d84f2c45868e344bdbbc9a019","pageId":2,"query":"","parents":"","aliases":[],"options":[],"mode":"","moreText":"\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0435\u0449\u0435"};</script>
+
+
+
 <script>document.title="Каталог"</script>
 
 <section class="middle">
     <div class="container">
         <div class="f-row f-row__content">
             <aside class="sidebar">
-                <div class="leftmenu">
-                    <ul>
-                        <li><a href="#"><span>Доставка и оплата</span></a></li>
-                        <li><a href="#"><span>Как заказать</span></a></li>
-                        <li><a href="#"><span>Пункты самовывоза</span></a></li>
-                        <li><a href="#"><span>Обмен и возврат</span></a></li>
-                        <li><a href="#"><span>Сроки доставки</span></a></li>
-                        <li><a href="#"><span>Бесплатная доставка</span></a></li>
-                        <li><a href="#"><span>Контакты</span></a></li>
-                    </ul>
+                <div class="aside-filter" id="mse2_mfilter">
+                    <form action="katalog-tovarov" method="post" id="mse2_filters">
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Производитель</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Mobil</option>
+                                    <option value="">Shell</option>
+                                    <option value="">Lukoil</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Состав</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Тип двигателя</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Тип автомобиля</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Вязкость</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <fieldset id="mse2_ms|price">
+                            <div class="aside-filter__label">Объем упаковки, Л.</div>
+                            <div class="aside-filter__body">
+                                <div class="mse2_number_slider"></div>
+                                <div class="mse2_number_inputs">
+                                    <div class="form-group col-md-6">
+                                        <label for="mse2_ms|price_0">от
+                                            <input type="text" name="price" id="mse2_ms|price_0" value="1490" class="form-control input-sm" />
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="mse2_ms|price_1">до
+                                            <input type="text" name="price" id="mse2_ms|price_1" value="8990" class="form-control input-sm" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Спецификации ACEA</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Спецификации API</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__item">
+                            <div class="aside-filter__label">Спецификации OEM</div>
+                            <div class="aside-filter__body">
+                                <select name="" id="" class="selectric">
+                                    <option value="">Один</option>
+                                    <option value="">Два</option>
+                                    <option value="">Три</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aside-filter__reset">
+                            <button class="btn-o">Сбросить</button>
+                        </div>
+
+                    </form>
+
+
+
                 </div>
             </aside>
 

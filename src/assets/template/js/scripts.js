@@ -111,6 +111,23 @@ $(function() {
        return false;
     });*/
 
+    $('.cabinet__label').click(function() {
+        li = $(this).parents('li');
+        li.toggleClass('open');
+    });
+
+    $('.aside-toggle').click(function() {
+        sidebar = $('aside.sidebar');
+        sidebar.toggleClass('open');
+        return false;
+    });
+
+    $(".topmenu-toggle").magnificPopup({
+        type: "inline",
+        midClick: true,
+        mainClass: 'mobile-menu'
+    });
+
 
     setModelCircle = function() {
         //устанавливаем кружок-подложку
