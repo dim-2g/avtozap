@@ -33,12 +33,16 @@
 }
 .delivery-pickup{
   display: flex;
+  flex-direction: column;
+  @media($bp-larger-than-desktophd){
+    flex-direction: row;
+  }
   &__content{
-    width: 50%;
+    width: 100%;
     padding-right: 10px;
   }
   &__map{
-    width: 50%;
+    width: 100%;
     padding-left: 10px;
     padding-top: 80px;
     img{
@@ -96,7 +100,11 @@
   &__list{
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    @media($bp-larger-than-desktop){
+      justify-content: flex-start;
+    }
 
   }
   &__item{
@@ -105,7 +113,13 @@
     background-color: #f1f1f1;
     border: 1px solid #cfcfcf;
     border-radius: 1px;
-    margin-right: 30px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 30px;
+    @media($bp-larger-than-desktop){
+      margin-left: 0;
+      margin-right: 30px;
+    }
   }
   &__image{
     height: 95px;

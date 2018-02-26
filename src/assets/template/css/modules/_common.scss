@@ -255,7 +255,10 @@ aside{
         border-top: 2px solid #fff;
         border-bottom: 2px solid #fff;
         top: 20px;
-        left: 15px;
+        left: 12px;
+        @media($bp-larger-than-mobile){
+          left: 15px;
+        }
       }
       &:after{
         position: absolute;
@@ -264,7 +267,10 @@ aside{
         height: 2px;
         background-color: #fff;
         top: 28px;
-        left: 15px;
+        left: 12px;
+        @media($bp-larger-than-mobile){
+          left: 15px;
+        }
       }
       span{
         vertical-align: middle;
@@ -399,8 +405,14 @@ aside{
 
       &:hover{
         .cabinet__wrapper{
-          display: block;
+          @media($bp-larger-than-tablet){
+            display: block;
+          }
+          .mfp-hide{
+           display: block !important; 
+          }
         }
+
       }
       /*&.open{
         .cabinet__wrapper{
@@ -413,10 +425,64 @@ aside{
 .mobile-menu{
   .topmenu__mobile{
     display: block;
+    ul{
+    }
+    > ul {
+      margin-top: 40px;
+      > li{
+        margin-bottom: 25px;
+        > a{
+          border-left: 2px solid $red;
+          font-size: 32px;
+          padding-left: 10px;
+        }
+        > ul {
+          > li {
+            > a {
+              font-size: 20px;
+            }
+            ul{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    li{
+      margin-bottom: 12px;
+    }
+    a{
+      text-transform: uppercase;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+    }
   }
   .mfp-container::before{
-    vertical-align: top;
+    //vertical-align: top;
   }
+  .mfp-close{
+    color: #fff;
+  }
+  .cabinet__box{
+    margin-top: 40px;
+    border: 0 none;
+    &:before{
+      display: none;
+    }
+  }
+}
+.mobile-center{
+  .cabinet__box{
+    margin-top: 40px;
+    border: 0 none;
+    margin-left: auto;
+    margin-right: auto;
+  
+    &:before{
+      display: none;
+    }
+  } 
 }
 .cabinet{
   &__label{
@@ -705,6 +771,16 @@ aside{
   &__left{
     order: 1;
     margin-bottom: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-mobile){
+      width: 300px;
+    }
+    @media($bp-larger-than-tablet){
+      margin-left: 0;
+      margin-right: 0;
+    }
     @media($bp-larger-than-desktophd){
       order: 0;
       padding: 0 20px;
@@ -735,6 +811,12 @@ aside{
   &__right{
     order: 2;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-tablet){
+      margin-left: 0;
+      margin-right: 0;
+    }
     @media($bp-larger-than-desktophd){
       order: 2;
       padding: 0 20px;
@@ -770,7 +852,10 @@ aside{
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 35px;
+    padding: 0 15px;
+    @media($bp-larger-than-tablet) {
+      padding: 0 35px;
+    }
     @media($bp-larger-than-phablet){
       padding: 0 35px;
     }

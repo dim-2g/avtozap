@@ -1,0 +1,78 @@
+.main-section{
+  display: flex;
+  height: 100%;
+  margin-left: 110px;
+  margin-right: 110px;
+  margin-top: 35px;
+}
+.main-brands{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__item{
+    display: inline-block;
+    text-decoration: none;
+    &:before{
+      content: "";
+      display: inline-block;
+    }
+    &--hino{
+      &:before{
+        @include sprite($logo-hino);
+      }
+      &.active{
+        @include sprite($logo-hino-active);
+      }
+    }
+    &--mitsu{
+      &:before{
+        @include sprite($logo-mitsu);
+      }
+      &.active{
+        @include sprite($logo-mitsu-active);
+      }
+    }
+    &--isuzu{
+      &:before{
+        @include sprite($logo-isuzu);
+      }
+      &.active{
+        @include sprite($logo-isuzu-active);
+      }
+    }
+    & + .main-brands__item{
+      margin-top: 20px;
+    }
+  }
+
+}
+.main-models{
+  flex: 1;
+  .main-nav{
+     &.prev{
+      left: 20px;
+     }
+    &.next{
+      right: 20px;
+    }
+  }
+  [slide-index] img{
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &__name{
+    transform: rotateY(180deg);
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .main-navigation__item{
+    a{
+      text-decoration: none;
+    }
+  }
+}

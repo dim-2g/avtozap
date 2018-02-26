@@ -24,6 +24,14 @@
 </head>
 <body>
 
+<div class="loaderArea">
+   <div class="loader">
+       <span class="cogs-live">
+            <span class="cogs-live__box"></span>
+        </span>
+   </div>
+</div>
+
 <div class="header__burger">
     <a href="#" class="burger toogle-mobile-menu" data-mfp-src="#main-menu"></a>
 </div>
@@ -54,23 +62,26 @@
             </div>
             <div class="topmenu__center">
                 <a href="#topmenu" class="topmenu-toggle"></a>
-                <ul class="topmenu__mobile" id="topmenu">
-                    <li><a href="#">О нас</a></li>
-                    <li class="has-child"><a href="#">Бренды</a>
-                        <ul>
-                            <li><a href="#">Isuzu</a></li>
-                            <li class="has-child"><a href="#">Hino</a>
-                                <ul>
-                                    <li><a href="#">300</a></li>
-                                    <li><a href="#">500</a></li>
-                                    <li><a href="#">700</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Mitsubishi</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
+                <div id="topmenu" class="topmenu__mobile">
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li class="has-child"><a href="#">Бренды</a>
+                            <ul>
+                                <li><a href="#">Isuzu</a></li>
+                                <li class="has-child"><a href="#">Hino</a>
+                                    <ul>
+                                        <li><a href="#">300</a></li>
+                                        <li><a href="#">500</a></li>
+                                        <li><a href="#">700</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Mitsubishi</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+
+                </div>
                 <ul class="topmenu__list">
                     <li><a href="#">О нас</a></li>
                     <li class="has-child"><a href="#">Бренды</a>
@@ -89,9 +100,9 @@
                     <li><a href="#">Контакты</a></li>
                 </ul>
                 <ul class="topmenu__cabinet">
-                    <li><a class="cabinet__label" href="#"><span>Личный кабинет</span></a>
+                    <li><a class="cabinet__label auth-toggle" href="#authform"><span>Личный кабинет</span></a>
                         <div class="cabinet__wrapper">
-                            <div class="cabinet__box">
+                            <div class="cabinet__box" id="authform">
                                 <div class="cabinet__header">
                                     <span>Вход</span>
                                     <a href="#">Регистрация</a>
