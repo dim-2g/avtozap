@@ -4,6 +4,10 @@
     margin-right: -20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    @media($bp-larger-than-desktop){
+      justify-content: flex-start;
+    }
   }
   &__item{
     padding: 0 20px;
@@ -78,13 +82,19 @@
 .sortpanel{
   background-color: #313335;
   color: #fff;
-  padding: 15px 65px;
+  padding: 15px 15px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.33);
   position: relative;
+  justify-content: center;
+  @media($bp-larger-than-tablet){
+    justify-content: space-between;
+  }
   //z-index: 10;
+  @media($bp-larger-than-desktop){
+    padding: 15px 65px;
+  }
   &__left{
     display: flex;
     align-items: center;
@@ -94,6 +104,7 @@
   &__item{
     padding-left: 15px;
     padding-right: 15px;
+    text-align: center;
     &--showpages{
       .selectricWrapper{
         width: 50px;
@@ -101,7 +112,12 @@
     }
   }
   &__label{
-    margin-right: 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline-block;
+    @media($bp-larger-than-tablet){
+      margin-right: 20px;
+    }
   }
   select{
     color: #000;
@@ -154,6 +170,26 @@
     margin: 0;
     width: auto;
   }
+  &--top{
+    .sortpanel__right{
+      display: none;
+      @media($bp-larger-than-tablet){
+        display: flex;
+      }
+    }
+  }
+  &--bottom{
+    justify-content: center;
+    @media($bp-larger-than-tablet){
+      justify-content: space-between;
+    }
+    .sortpanel__left{
+      display: none;
+      @media($bp-larger-than-tablet){
+        display: flex;
+      }
+    }
+  }
 }
 .viewbox{
   display: flex;
@@ -177,19 +213,30 @@
 
 .view-product{
   background: #d6d6d6;
-  padding: 28px 65px;
+  padding: 28px 15px;
+  position: relative;
+  @media($bp-larger-than-desktop){
+    padding: 28px 65px;
+  }
   &__header{
     color: #333333;
     font-size: 24px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    @media($bp-larger-than-desktophd){
+      margin-bottom: 30px;
+    }
   }
   &__list{
-    padding-left: 98px;
-    padding-right: 98px;
+    padding-left: 0px;
+    padding-right: 0px;
     display: none;
+    @media($bp-larger-than-phablet){
+      padding-left: 98px;
+      padding-right: 98px;
+    }
     &.slick-initialized{
       display: block;
     }
@@ -269,7 +316,13 @@
     }
   }
   &__all{
-    float: right;
+    margin-bottom: 20px;
+    text-align: center;
+    @media($bp-larger-than-desktophd){
+      position: absolute;
+      right: 65px;
+      top: 20px;
+    }
     .btn-o{
       padding: 10px 35px;
       text-transform: uppercase;

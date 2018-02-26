@@ -49,28 +49,46 @@ $(function() {
         adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 1400,
+                breakpoint: 1800,
+                settings: {
+                    slidesToShow: 5,
+                }
+            },
+            {
+                breakpoint: 1600,
                 settings: {
                     slidesToShow: 4,
                 }
             },
             {
-                breakpoint: 1200,
+                breakpoint: 1400,
                 settings: {
                     slidesToShow: 3,
                 }
             },
             {
-                breakpoint: 769,
+                breakpoint: 1215,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 1000,
                 settings: {
                     slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
                 }
             },
             {
                 breakpoint: 376,
                 settings: {
                     slidesToShow: 1,
-                    arrows: true,
+                    arrows: false,
                     dots: true,
                 }
             }
@@ -134,6 +152,12 @@ $(function() {
         midClick: true,
         mainClass: 'mobile-center',
         closeBtnInside: false
+    });
+
+    $('.footer-toggle').click(function() {
+        obj = $('.footer__center');
+        obj.toggleClass('open');
+        return false;
     });
 
 

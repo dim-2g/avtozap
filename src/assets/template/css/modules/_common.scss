@@ -92,8 +92,10 @@ body{
   }
   &__search{
     flex: 1;
-    margin-left: 3%;
-    margin-right: 3%;
+    @media($bp-larger-than-tablet){
+      margin-left: 3%;
+      margin-right: 3%;
+    }
   }
 
   &__phones{
@@ -142,10 +144,12 @@ body{
 .search{
   width: 100%;
   position: relative;
-  margin-left: 3%;
-  margin-right: 3%;
   height: 48px;
   margin-bottom: 10px;
+  @media($bp-larger-than-tablet){
+    margin-left: 3%;
+    margin-right: 3%;
+  }
   @media($bp-larger-than-desktophd){
     margin-bottom: 0;
   }
@@ -762,9 +766,12 @@ aside{
 }
 
 .footer{
-  padding: 45px 0 20px;
+  padding: 65px 0 20px;
   background: #010101;
-  @media($bp-larger-than-tablet) {
+  position: relative;
+
+  @media($bp-larger-than-desktop) {
+    padding: 45px 0 20px;
     background: #000000 url('../img/footer__bg.jpg') bottom center no-repeat;
     background-size: cover;
   }
@@ -787,18 +794,13 @@ aside{
     }
   }
   &__center{
-    display: flex;
     width: 100%;
     order: 0;
     flex-wrap: wrap;
     justify-content: space-between;
-    //padding-left: 65px;
-    //padding-right: 65px;
-
-    @media($bp-larger-than-tablet){
-
-    }
+    display: none;
     @media($bp-larger-than-desktop){
+      display: flex;
       flex-wrap: nowrap;
       padding-left: 0;
       padding-right: 0;
@@ -806,6 +808,9 @@ aside{
     }
     @media($bp-larger-than-desktophd){
       order: 1;
+    }
+    &.open{
+      display: flex;
     }
   }
   &__right{
@@ -862,6 +867,52 @@ aside{
     @media($bp-larger-than-desktophd){
       flex-wrap: nowrap;
       padding: 0;
+    }
+  }
+  &__toggle{
+    display: inline-block;
+    height: 57px;
+    line-height: 56px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-left: 60px;
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    @media($bp-larger-than-desktop){
+      display: none;
+    }
+    &:hover{
+      color: #fff;
+    }
+    &:before{
+      position: absolute;
+      content: "";
+      width: 30px;
+      height: 14px;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      top: 20px;
+      left: 12px;
+      @media($bp-larger-than-mobile){
+        left: 15px;
+      }
+    }
+    &:after{
+      position: absolute;
+      content: "";
+      width: 30px;
+      height: 2px;
+      background-color: #fff;
+      top: 28px;
+      left: 12px;
+      @media($bp-larger-than-mobile){
+        left: 15px;
+      }
     }
   }
 }
@@ -1125,6 +1176,7 @@ aside{
 .pagination{
   margin: 0 !important;
   text-align: center;
+  white-space: nowrap;
   li{
     display: inline-block;
     color: #fff;
@@ -1294,3 +1346,4 @@ input[disabled="disabled"]{
     }
   }
 }
+
