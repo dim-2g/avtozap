@@ -220,11 +220,14 @@
   }
   &__header{
     color: #333333;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-bottom: 20px;
+    @media($bp-larger-than-phablet){
+      font-size: 24px;
+    }
     @media($bp-larger-than-desktophd){
       margin-bottom: 30px;
     }
@@ -268,6 +271,7 @@
     align-items: center;
     justify-content: center;
     line-height: 100%;
+
   }
   .slick-arrow{
     border: 0 none;

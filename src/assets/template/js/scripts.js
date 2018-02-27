@@ -30,10 +30,16 @@ $(function() {
                 }
             },
             {
-                breakpoint: 376,
+                breakpoint: 750,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 580,
                 settings: {
                     slidesToShow: 1,
-                    arrows: true,
+                    arrows: false,
                     dots: true,
                 }
             }
@@ -95,6 +101,49 @@ $(function() {
         ]
     });
 
+
+    $('.related-product__list').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        focusOnSelect: true,
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 9999,
+                settings: "unslick"
+            },
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 1150,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                    dots: true,
+                }
+            }
+
+        ]
+    });
+
     //переключение категорий каталога
     $('[data-list]').click(function(){
         $('[data-list]').removeClass('active');
@@ -103,6 +152,11 @@ $(function() {
         var data_list = $(this).attr('data-list');
         $('.category-list').removeClass('active');
         $('.category-list.'+data_list).addClass('active');
+        if ($(window).width()<1000) {
+            selector = '.catalog-menu';
+            $('html, body').animate({ scrollTop: $(selector).offset().top}, 1200);
+        }
+
         return false;
     });
 
@@ -118,7 +172,6 @@ $(function() {
     });
 
     $('[toggle-class]').click(function(){
-
         $(this).toggleClass($(this).attr('toggle-class'));
         return false;
     })

@@ -1,7 +1,8 @@
 .order{
   &__list{
-    height: 800px;
-    width: 85%;
+    @media($bp-larger-than-desktop){
+      width: 85%;
+    }
   }
   &__text{
     p{
