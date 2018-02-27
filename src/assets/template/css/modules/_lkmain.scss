@@ -6,14 +6,23 @@
   display: flex;
   padding-bottom: 32px;
   border-bottom: 1px solid #cfcfcf;
+  flex-direction: column;
+  align-items: center;
+  @media($bp-larger-than-tablet){
+    flex-direction: row;
+    align-items: flex-start;
+  }
   &__image{
     height:158px;
     width: 162px;
-    margin-right: 16px;
     margin-top: 3px;
+    margin-bottom: 30px;
+    @media($bp-larger-than-tablet){
+      margin-right: 34px;
+    }
   }
   &__info{
-    margin-left: 18px;
+
   }
   &__name{
     font-weight: bold;
@@ -23,11 +32,12 @@
   &__setting{
     margin-left: 11px;
     color: $red;
-    position: absolute;
+    position: relative;
     font-size: 15px;
     text-decoration: none;
+    padding-left: 30px;
     &:before{
-      position: relative;
+      position: absolute;
       content: "";
       @include sprite($lk-setting);
       top:0;
@@ -38,13 +48,16 @@
   }
 }
 .lcabinet-box{
-    margin-left: 71px;
-    margin-right: -38px;
-    margin-top: 33px;
+    padding: 38px 0;
+    //margin-left: 71px;
+    //margin-right: -38px;
+    //margin-top: 33px;
 
   &__list{
     display: flex;
     flex-wrap: wrap;
+    padding: 38px 0 3px;
+    justify-content: center;
   }
   &__item{
     padding: 0 35px;
@@ -99,22 +112,22 @@
     color: #313335;
     font-size: 24px;
     font-weight: bold;
-    margin-right: 20px;
+    margin-right: 38px;
   }
   &__setting{
     font-size: 15px;
     text-decoration: none;
     line-height: 28px;
     margin-top: 7px;
-    margin-left: 19px;
     &:before{
       position: relative;
       content: "";
       @include sprite($lk-setting);
       top:0;
-      left: -7px;
+      left: 0px;
       display: inline-block;
       vertical-align: middle;
+      margin-right: 5px;
     }
   }
   &__text{

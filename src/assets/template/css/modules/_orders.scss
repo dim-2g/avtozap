@@ -1,5 +1,8 @@
 .orders{
-  padding: 1px 43px 32px 67px;
+  margin: 0 35px 32px 35px;
+  @media($bp-larger-than-desktop) {
+    margin: 0 43px 32px 67px;
+  }
   &__nav{
     position: relative;
     z-index: 3;
@@ -76,32 +79,41 @@
   &__show{
     background-color: #a7a7a7;
     width: 56px;
+    flex-shrink: 0;
   }
   &__left{
     margin-right: auto;
-    padding: 18px 18px;
+    padding: 3px 18px;
     justify-content: center;
     align-items: center;
+    display: flex;
   }
   &__right{
     display: flex;
-    padding: 18px 18px;
+    padding: 3px 18px;
     justify-content: center;
     align-items: center;
   }
   &__daterange{
     position: relative;
-    :before{
-      content: "";
-      display: inline-block;
-      @include sprite($icon-calendar);
-      position: absolute;
-      top: 3px;
-      right: -27px;
-    }
+
     a{
       color: $red;
+      padding-right: 27px;
+      position: relative;
+      white-space: nowrap;
+      &:before{
+        content: "";
+        display: inline-block;
+        @include sprite($icon-calendar);
+        position: absolute;
+        top: 3px;
+        right: 0px;
+      }
     }
+  }
+  .sortpanel__item{
+    white-space: nowrap;
   }
   &__show{
     display: flex;
@@ -231,6 +243,9 @@
     align-items: center;
     justify-content: space-between;
   }
+  &__descr{
+    padding-right: 10px;
+  }
   &__item-info{
     flex: 1;
     display: flex;
@@ -244,12 +259,26 @@
     font-weight: bold;
     color: $red;
     margin-right: 50px;
+    white-space: nowrap;
   }
   &__buy-info{
+    position: relative;
     flex: 1;
     padding: 0 5px;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    display: flex;
+    max-width: 600px;
+    @media($bp-larger-than-desktop) {
+      padding-right: 30px;
+      flex-direction: column;
+      flex: 0;
+    }
+    @media($bp-larger-than-1250){
+      flex-direction: row;
+      flex: 1;
+    }
   }
   &__status{
     margin-left: auto;
@@ -261,20 +290,26 @@
     width: 82px;
     line-height: 25px;
     text-align: center;
+    flex-shrink: 0;
   }
-  &__buy-info{
+  /*&__buy-info{
     display: flex;
     max-width: 600px;
-  }
+    justify-content: flex-end;
+  }*/
   &__count{
     flex: 1;
     text-align: center;
+    white-space: nowrap;
+    margin-bottom: 5px;
   }
   &__price{
     flex: 1;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
+    white-space: nowrap;
+    margin-bottom: 5px;
   }
   &__cancel{
     display: inline-block;
@@ -291,9 +326,19 @@
     }
   }
   &__actions{
-    width: 80px;
     text-align: right;
-    position: relative;
+    @media($bp-larger-than-desktop) {
+      right: 0px;
+      width: 24px;
+      top: 10px;
+      position: absolute;
+    }
+    @media($bp-larger-than-1250){
+      position: relative;
+      top: auto;
+      right: auto;
+      width: 80px;
+    }
   }
 }
 .pagination-order{

@@ -6,24 +6,7 @@
     <div class="container">
         <div class="f-row f-row__content">
             <aside class="sidebar">
-                <div class="b-manager aside-block">
-                    <div class="aside-block__header">Ваш менеджер</div>
-                    <div class="b-manager__row">
-                        <div class="b-manager__photo" style="background-image: url('assets/template/img/tmp/manager.png');"></div>
-                        <div class="b-manager__name">Пташкина Людмила
-                            Валерьевна</div>
-                    </div>
-                </div>
-                <div class="b-client aside-block">
-                    <div class="aside-block__header">Код клиента</div>
-                    <div class="b-client__number">R104164648</div>
-                    <div class="b-client__text">Уникальный номер клиента для использования при выдаче прав на свои точки и других операциях</div>
-                </div>
-                <div class="b-agreement aside-block">
-                    <div class="aside-block__header">Договор с офисом</div>
-                    <div class="b-agreement__number">1646416145154</div>
-                    <div class="b-agreement__text">Для индификации вашего платежа при безналичной оплате, обязательно указывайте номер договора в назначении платежа</div>
-                </div>
+                //= include/aside-cabinet.html
             </aside>
             <div class="content">
 
@@ -42,9 +25,9 @@
                     <div class="orders__nav">
                         <a href="#" class="btn-o orders__balance">Баланс личного счета</a>
                         <ul>
-                            <li><a class="active" href="#">Текущие(8)</a></li>
-                            <li><a href="#">Архив</a></li>
-                            <li><a href="#">Счета</a></li>
+                            <li><a data-tab=".tab-current" class="active" href="#">Текущие(8)</a></li>
+                            <li><a data-tab=".tab-archive" href="#">Архив</a></li>
+                            <li><a data-tab=".tab-invoice" href="#">Счета</a></li>
                         </ul>
                     </div>
                     <div class="orders__tabs">
@@ -282,11 +265,13 @@
                             </div>
 
                         </div>
-                        <div class="catalog-posts__tab tab tab-arhive">
-
+                        <div class="catalog-posts__tab tab tab-archive">
+                            <h3>Архив</h3>
+                            <p>Записей не найдено</p>
                         </div>
                         <div class="catalog-posts__tab tab tab-invoice">
-
+                            <h3>Счета</h3>
+                            <p>Записей не найдено</p>
                         </div>
                     </div>
                 </div>

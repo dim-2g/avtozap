@@ -1091,6 +1091,13 @@ aside{
     margin: 0;
     li{
       margin: 25px 0;
+      &.active{
+        a{
+          &:before{
+            width: 100%;
+          }
+        }
+      }
     }
   }
   a{
@@ -1102,11 +1109,6 @@ aside{
     text-decoration: none;
     position: relative;
     &:hover{
-      &:before{
-        width: 100%;
-      }
-    }
-    &.active{
       &:before{
         width: 100%;
       }

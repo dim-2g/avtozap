@@ -102,6 +102,7 @@
     &--region{
       width: 40px;
       margin-right: 10px;
+      flex-shrink: 0;
       input[type="text"]{
         padding-left: 2px;
         padding-right: 2px;

@@ -186,9 +186,9 @@
                     <div class="orders__nav">
                         <a href="#" class="btn-o orders__balance">Баланс личного счета</a>
                         <ul>
-                            <li><a class="active" href="#">Текущие(8)</a></li>
-                            <li><a href="#">Архив</a></li>
-                            <li><a href="#">Счета</a></li>
+                            <li><a data-tab=".tab-current" class="active" href="#">Текущие(8)</a></li>
+                            <li><a data-tab=".tab-archive" href="#">Архив</a></li>
+                            <li><a data-tab=".tab-invoice" href="#">Счета</a></li>
                         </ul>
                     </div>
                     <div class="orders__tabs">
@@ -426,11 +426,13 @@
                             </div>
 
                         </div>
-                        <div class="catalog-posts__tab tab tab-arhive">
-
+                        <div class="catalog-posts__tab tab tab-archive">
+                            <h3>Архив</h3>
+                            <p>Записей не найдено</p>
                         </div>
                         <div class="catalog-posts__tab tab tab-invoice">
-
+                            <h3>Счета</h3>
+                            <p>Записей не найдено</p>
                         </div>
                     </div>
                 </div>

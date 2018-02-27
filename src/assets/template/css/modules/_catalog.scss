@@ -346,6 +346,12 @@
     border-bottom: 1px solid #2c3032;
     padding: 15px;
     color: #fff;
+
+  }
+  &__search-box{
+    padding-top: 20px;
+    padding-bottom: 2px;
+    border-bottom: 0 none;
   }
   select{
     width: 100%;
@@ -399,35 +405,40 @@
     font-size: 14px;
     margin-bottom: 20px;
   }
-  .ui-widget.ui-widget-content{
-    border: 0 none;
-  }
-  .ui-slider{
-    .ui-slider-range{
-      background-color: $red;
+  #mse2_filters{
+    .ui-widget.ui-widget-content{
+      border: 0 none;
+      margin-bottom: 18px;
+      margin-right: 8px;
+    }
+    .ui-slider{
+      .ui-slider-range{
+        background-color: $red;
+      }
+    }
+    .ui-slider-horizontal{
+      height: 6px;
+    }
+    .ui-widget-content{
+      .ui-state-default{
+        top: -5px;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background-color: #2c3032;
+        border: 3px solid #fff;
+        outline: none;
+      }
     }
   }
-  .ui-slider-horizontal{
-    height: 6px;
-  }
-  .ui-widget-content{
-    .ui-state-default{
-      top: -5px;
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      background-color: #2c3032;
-      border: 3px solid #fff;
-      outline: none;
-    }
-  }
+
   fieldset{
     padding: 0;
     border: 0 none;
   }
   #mse2_filters{
-    margin-right: 6px;
-    margin-left: 6px;
+    //margin-right: 6px;
+    //margin-left: 6px;
     margin-bottom: 20px;
   }
   .mse2_number_inputs{
@@ -450,6 +461,60 @@
       border: 1px solid #565656;
       background-color: transparent;
       color: #565656;
+    }
+  }
+  &__search{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    input[type="text"]{
+      border: 0 none;
+      background-color: #fff;
+      color: #444;
+      height: 30px;
+      line-height: 30px;
+      padding: 2px 15px;
+      width: 100%;
+    }
+    button{
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      line-height: 100%;
+      background-color: transparent;
+      border: 0 none;
+      &:before{
+        content: "";
+        display: inline-block;
+        @include sprite($search-dark);
+      }
+    }
+  }
+  &__checkbox{
+    display: block;
+    margin-bottom: 5px;
+    .checkbox-custom{
+      background-color: #fff;
+    }
+  }
+}
+.label{
+  &__photo{
+    position: relative;
+    padding-right: 30px;
+    &:after{
+      top: -3px;
+      content: "";
+      position: absolute;
+      display: inline-block;
+      @include sprite($photo);
+      margin-left: 20px;
+      vertical-align: middle;
     }
   }
 }
