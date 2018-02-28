@@ -1,5 +1,8 @@
 .orders{
-  margin: 0 35px 32px 35px;
+  margin: 0 15px 32px 15px;
+  @media($bp-larger-than-phablet) {
+    margin: 0 35px 32px 35px;
+  }
   @media($bp-larger-than-desktop) {
     margin: 0 43px 32px 67px;
   }
@@ -10,24 +13,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    @media($bp-larger-than-tablet) {
+      flex-direction: row;
+    }
     ul{
       list-style-type: none;
       display: flex;
       float: left;
       margin: 0;
-      order: 1;
+      @media($bp-larger-than-tablet) {
+        order: 1;
+      }
       li{
         padding: 0;
 
         a{
-          padding: 11px 20px 22px;
+          padding: 11px 20px 12px;
           color: #999ba0;
-          font-size: 18px;
+          font-size: 14px;
           text-decoration: none;
           font-weight: bold;
           position: relative;
           z-index: 3;
           display: inline-block;
+          @media($bp-larger-than-phablet) {
+            font-size: 18px;
+            padding: 11px 20px 22px;
+          }
           &.active{
             color: #2c3032;
             border-top: 1px solid #cfcfcf;
@@ -42,8 +55,11 @@
               right: -7px;
               width: 4px;
               bottom: 2px;
-              display: inline-block;
+              display: none;
               @include sprite($tab-shadow);
+              @media($bp-larger-than-phablet) {
+                display: inline-block;  
+              }
             }
           }
         }
@@ -59,8 +75,12 @@
     font-size: 14px;
     padding-left: 20px;
     padding-right: 20px;
-    order: 2;
     display: flex;
+    margin-bottom: 20px;
+    @media($bp-larger-than-tablet) {
+      margin-bottom: 0;
+      order: 2;
+    }
   }
   &__tabs{
     padding: 20px;
@@ -72,14 +92,24 @@
 }
 .orders-filter{
   display: flex;
-  height: 52px;
+  min-height: 52px;
   background-color: #dedede;
  // justify-content: center;
  // align-items: center;
+  flex-direction: column;
+  @media($bp-larger-than-tablet) {
+    flex-direction: row;
+  }
   &__show{
     background-color: #a7a7a7;
-    width: 56px;
+    width: 100%;
     flex-shrink: 0;
+    min-height: 52px;
+    margin-bottom: 10px;
+    @media($bp-larger-than-tablet) {
+      width: 56px;
+      margin-bottom: 0;
+    }
   }
   &__left{
     margin-right: auto;
@@ -87,12 +117,24 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    @media($bp-larger-than-phablet) {
+      margin-bottom: 0;
+    }
+    @media($bp-larger-than-tablet) {
+      width: auto;
+    }
   }
   &__right{
     display: flex;
     padding: 3px 18px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    @media($bp-larger-than-tablet) {
+      flex-direction: row;
+    }
   }
   &__daterange{
     position: relative;
@@ -114,6 +156,10 @@
   }
   .sortpanel__item{
     white-space: nowrap;
+    margin: 3px 0 10px;
+    @media($bp-larger-than-phablet) {
+      margin: 3px 0;
+    }
   }
   &__show{
     display: flex;
@@ -222,6 +268,7 @@
     display: flex;
     padding: 13px 20px;
     border-bottom: 1px solid #cfcfcf;
+    flex-wrap: wrap;
   }
   &__date{
     margin-right: 18px;
@@ -242,9 +289,17 @@
     margin-right: -5px;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+    @media($bp-larger-than-tablet) {
+      flex-direction: row;
+    }
   }
   &__descr{
-    padding-right: 10px;
+    margin-bottom: 5px;
+    @media($bp-larger-than-tablet) {
+      margin-bottom: 0;
+      padding-right: 10px;
+    }
   }
   &__item-info{
     flex: 1;
@@ -253,13 +308,22 @@
     justify-content: center;
     align-items: center;
     max-width: 720px;
+    flex-direction: column;
+    @media($bp-larger-than-tablet) {
+      flex-direction: row;
+    }
   }
   &__name{
     font-size: 16px;
     font-weight: bold;
     color: $red;
-    margin-right: 50px;
+    margin-right: 0;
     white-space: nowrap;
+    margin-bottom: 5px;
+    @media($bp-larger-than-tablet) {
+      margin-right: 50px;
+      margin-bottom: 0;
+    }
   }
   &__buy-info{
     position: relative;
@@ -281,16 +345,20 @@
     }
   }
   &__status{
-    margin-left: auto;
+    margin-left: 0;
     display: inline-block;
     color: #fff;
-    //padding: 5px 16px;
     border-radius: 4px;
     height: 29px;
     width: 82px;
     line-height: 25px;
     text-align: center;
     flex-shrink: 0;
+    margin-bottom: 5px;
+    @media($bp-larger-than-tablet) {
+      margin-left: auto;
+      margin-bottom: 0;
+    }
   }
   /*&__buy-info{
     display: flex;
@@ -302,6 +370,10 @@
     text-align: center;
     white-space: nowrap;
     margin-bottom: 5px;
+    margin-right: 8px;
+    @media($bp-larger-than-tablet) {
+      margin-right: 0;
+    }
   }
   &__price{
     flex: 1;
@@ -310,6 +382,10 @@
     font-size: 16px;
     white-space: nowrap;
     margin-bottom: 5px;
+    margin-right: 8px;
+    @media($bp-larger-than-tablet) {
+      margin-right: 0;
+    }
   }
   &__cancel{
     display: inline-block;
