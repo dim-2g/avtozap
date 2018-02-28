@@ -23,18 +23,24 @@
     text-decoration: none;
     color: inherit;
     display: flex;
-    padding: 16px 30px;
+    padding: 16px 0;
     border-top: 1px solid #cfcfcf;
     align-items: center;
+    @media($bp-larger-than-mobile){
+      padding: 16px 30px;
+    }
     &:hover{
       background-color: #ececec;
     }
   }
   &__name{
     color: #2c3032;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     padding-right: 35px;
+    @media($bp-larger-than-mobile){
+      font-size: 18px;
+    }
   }
   &__date{
     color: #53575e;
@@ -61,6 +67,7 @@
     background-color: $red;
     margin: 0 32px;
     padding: 5px 25px;
+    white-space: nowrap;
   }
 }
 

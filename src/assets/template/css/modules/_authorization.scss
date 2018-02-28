@@ -6,12 +6,22 @@
 .authorization{
   display: flex;
   min-height: 700px;
+  flex-direction: column;
+  align-items: center;
+  @media($bp-larger-than-1250){
+    flex-direction: row;
+    align-items: stretch;
+  }
 }
 .autoriz{
   max-width: 462px;
   width: 100%;
-  border-right: 1px solid #c0c0c0;
-  padding-right: 54px;
+  margin-bottom: 70px;
+  @media($bp-larger-than-1250){
+    border-right: 1px solid #c0c0c0;
+    padding-right: 54px;
+    margin-right: 50px;
+  }
   h1{
     margin-top: 0;
   }
@@ -65,35 +75,66 @@
   &__social{
     margin-top: 30px;
     display: flex;
+    align-items: center;
     >*{
       display: block;
-      margin: 0 13px;
+      margin: 0 7px;
       content: "";
+      @media($bp-larger-than-mobile){
+        margin: 0 13px;
+      }
     }
   }
   &__vk{
-    @include sprite($vk-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($vk-dark);
+    }
   }
   &__facebook{
-    @include sprite($facebook-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($facebook-dark);
+    }
   }
   &__google{
-    @include sprite($google-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($google-dark);
+    }
   }
   &__mailru{
-    @include sprite($mailru-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($mailru-dark);
+    }
   }
   &__windows{
-    @include sprite($windows-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($windows-dark);
+    }
   }
   &__yandex{
-    @include sprite($yandex-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($yandex-dark);
+    }
   }
 }
 .registr {
-  max-width: 700px;
+  max-width: 462px;
   width: 100%;
-  padding-left: 50px;
+  //padding-left: 50px;
+  @media($bp-larger-than-1250){
+    max-width: 700px;
+  }
   h1{
     margin-top: 0;
   }
@@ -109,8 +150,11 @@
     align-items: center;
   }
   &__name {
-    width: 166px;
+    width: 100px;
     flex-shrink: 0;
+    @media($bp-larger-than-mobile){
+      width: 166px;
+    }
   }
   &__value {
     flex: 1;
@@ -146,33 +190,67 @@
     padding-bottom: 26px;
     >*{
       display: block;
-      margin: 0 13px;
+      margin: 0 7px;
       content: "";
+      @media($bp-larger-than-mobile){
+        margin: 0 13px;
+      }
     }
   }
   &__vk{
-    @include sprite($vk-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($vk-dark);
+    }
   }
   &__facebook{
-    @include sprite($facebook-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($facebook-dark);
+    }
   }
   &__google{
-    @include sprite($google-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($google-dark);
+    }
   }
   &__mailru{
-    @include sprite($mailru-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($mailru-dark);
+    }
   }
   &__windows{
-    @include sprite($windows-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($windows-dark);
+    }
   }
   &__yandex{
-    @include sprite($yandex-dark);
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($yandex-dark);
+    }
   }
   &__issue{
     margin-top: 34px;
+    text-align: center;
+    @media($bp-larger-than-1250){
+      text-align: left;
+    }
     a{
-      margin-right: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 30px;
+      @media($bp-larger-than-mobile){
+        margin-right: 20px;
+        margin-bottom: 12px;
+      }
     }
   }
   &__issuefl{
