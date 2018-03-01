@@ -144,6 +144,15 @@ $(function() {
         ]
     });
 
+    $('.main-navigation--mobile').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        focusOnSelect: true,
+        adaptiveHeight: true,
+    });
+
     //переключение категорий каталога
     $('[data-list]').click(function(){
         $('[data-list]').removeClass('active');

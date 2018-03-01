@@ -1316,6 +1316,7 @@ input[disabled="disabled"]{
   width: 54px;
   position: relative;
   border-right: 1px solid #811526;
+  background-color: $red;
   @media($bp-larger-than-mobile){
     width: 60px;
   }
